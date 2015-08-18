@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "timecop"
 
-  spec.add_dependency "aws-sdk-core"
-  spec.add_dependency "redis"
-  spec.add_dependency "avro"
+  spec.add_dependency "aws-sdk-core", "~> 2.1.13"
+  spec.add_dependency "redis", "~> 3.2.1"
+  spec.add_dependency "avro", "~> 1.7.7"
 end

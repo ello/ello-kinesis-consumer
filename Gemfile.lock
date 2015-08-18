@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     ello-kinesis-consumer (0.1.0)
-      avro
-      aws-sdk-core
-      redis
+      avro (~> 1.7.7)
+      aws-sdk-core (~> 2.1.13)
+      redis (~> 3.2.1)
 
 GEM
   remote: https://rubygems.org/
