@@ -17,11 +17,23 @@ rescue LoadError
   puts 'Rspec is unavailable, skipping'
 end
 
+begin
+  require 'honeybadger'
+rescue LoadError
+  puts 'Honeybadger is unavailable, skipping'
+end
+
 $LOAD_PATH.unshift File.expand_path('./lib', __FILE__)
 require 'ello/kinesis_consumer'
 
 namespace :ello do
   task :process_knowtify_events do
-    Ello::KinesisConsumer::KnowtifyProcessor.new.run!
+    begin
+      Ello::KinesisConsumer::KnowtifyProcessor.new.run!
+    rescue StandardError => e
+      if defined?(Honeybadger)
+        Honeybadger.notify(e)
+      end
+    end
   end
 end

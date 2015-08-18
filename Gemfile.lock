@@ -21,6 +21,7 @@ GEM
     dotenv (2.0.2)
     fakeredis (0.5.0)
       redis (~> 3.0)
+    honeybadger (2.1.0)
     jmespath (1.0.2)
       multi_json (~> 1.0)
     method_source (0.8.2)
@@ -60,6 +61,7 @@ DEPENDENCIES
   dotenv
   ello-kinesis-consumer!
   fakeredis
+  honeybadger
   pry
   rake (~> 10.0)
   rspec
