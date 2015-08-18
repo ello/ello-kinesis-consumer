@@ -1,1 +1,1 @@
-knowtify: bundle rake ello:process_knowtify_events
+knowtify: bundle exec rake ello:process_knowtify_events
