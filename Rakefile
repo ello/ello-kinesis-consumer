@@ -19,6 +19,7 @@ end
 
 begin
   require 'honeybadger'
+  Honeybadger.start
 rescue LoadError
   puts 'Honeybadger is unavailable, skipping'
 end
