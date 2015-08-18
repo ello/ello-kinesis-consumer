@@ -7,9 +7,9 @@ module Ello
       # Assume only one shard for now
       BATCH_SIZE = 10
 
-      def initialize(stream_name:, logger: Ello::KinesisConsumer.logger)
+      def initialize(stream_name:, prefix: '', logger: Ello::KinesisConsumer.logger)
         @stream_name = stream_name
-        @tracker = SequenceNumberTracker.new(key_prefix: stream_name)
+        @tracker = SequenceNumberTracker.new(key_prefix: [ stream_name, prefix ].compact.join('-'))
         @logger = logger
       end
 

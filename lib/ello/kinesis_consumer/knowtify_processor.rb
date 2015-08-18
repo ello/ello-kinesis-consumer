@@ -5,7 +5,7 @@ module Ello
     class KnowtifyProcessor
 
       def initialize(stream_name: ENV['KINESIS_STREAM_NAME'], logger: Ello::KinesisConsumer.logger)
-        @stream_reader = StreamReader.new(stream_name: stream_name, logger: logger)
+        @stream_reader = StreamReader.new(stream_name: stream_name, prefix: 'knowtify', logger: logger)
         @logger = logger
       end
 
