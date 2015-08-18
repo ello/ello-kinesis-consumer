@@ -23,7 +23,7 @@ module Ello
         knowtify_client.upsert [{ email: record['email'],
                                   data: {
                                     username: record['username'],
-                                    created_at: Date.iso8601(record['created_at']).to_datetime
+                                    created_at: Time.at(record['created_at']).to_datetime
                                   }
                                 }]
       end
@@ -33,7 +33,7 @@ module Ello
         knowtify_client.upsert [{ email: record['email'],
                                   data: {
                                     username: record['username'],
-                                    created_at: Date.iso8601(record['created_at']).to_datetime
+                                    created_at: Time.at(record['created_at']).to_datetime
                                   }
                                 }]
       end

@@ -16,7 +16,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       {
         'email' => 'test@example.com',
         'username' => 'testuser',
-        'created_at' => Date.today.iso8601
+        'created_at' => Time.now.to_f
       }
     end
 
@@ -25,7 +25,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         email: 'test@example.com',
         data: {
           username: 'testuser',
-          created_at: Date.today.to_datetime
+          created_at: Time.now.to_datetime
         }
       }])
       processor.run!
@@ -39,7 +39,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         'username' => 'testuser',
         'email' => 'test2@example.com',
         'previous_email' => 'test@example.com',
-        'created_at' => Date.today.iso8601
+        'created_at' => Time.now.to_f
       }
     end
 
@@ -49,7 +49,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         email: 'test2@example.com',
         data: {
           username: 'testuser',
-          created_at: Date.today.to_datetime
+          created_at: Time.now.to_datetime
         }
       }])
       processor.run!
@@ -61,7 +61,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
     let(:record) do
       {
         'email' => 'test@example.com',
-        'deleted_at' => Date.today.iso8601
+        'deleted_at' => Time.now.to_f
       }
     end
 
