@@ -9,11 +9,14 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.8)
     avro (1.7.7)
       multi_json
     aws-sdk-core (2.1.13)
       jmespath (~> 1.0)
     coderay (1.1.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
     dotenv (2.0.2)
     fakeredis (0.5.0)
@@ -41,7 +44,13 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    safe_yaml (1.0.4)
     slop (3.6.0)
+    timecop (0.8.0)
+    vcr (2.9.3)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -54,6 +63,9 @@ DEPENDENCIES
   pry
   rake (~> 10.0)
   rspec
+  timecop
+  vcr
+  webmock
 
 BUNDLED WITH
    1.10.4

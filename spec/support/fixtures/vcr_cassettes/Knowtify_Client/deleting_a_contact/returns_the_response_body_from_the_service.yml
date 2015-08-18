@@ -1,0 +1,126 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://www.knowtify.io/api/v1/contacts/upsert
+    body:
+      encoding: UTF-8
+      string: '{"contacts":[{"email":"test@example.com"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token="<KNOWTIFY_API_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 18 Aug 2015 05:56:08 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE
+      Access-Control-Allow-Headers:
+      - Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Origin
+      Etag:
+      - W/"39f1cde3a1045e6ea22938f955a72eb6"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ba53d117-173e-4e47-9acf-1aabc824b0dc
+      X-Runtime:
+      - '0.017936'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"status":"received","contacts":1,"contacts_updated":1,"contacts_errored":0,"errors":"None
+        found by our cylon detector.","warnings":["No data for test@example.com?"]}'
+    http_version: 
+  recorded_at: Tue, 18 Aug 2015 05:56:08 GMT
+- request:
+    method: post
+    uri: http://www.knowtify.io/api/v1/contacts/delete
+    body:
+      encoding: UTF-8
+      string: '{"contacts":["test@example.com"]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token="<KNOWTIFY_API_TOKEN>"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 18 Aug 2015 05:56:08 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE
+      Access-Control-Allow-Headers:
+      - Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Origin
+      Etag:
+      - W/"05962b8f1e5f8d57acb7f2bb49b65849"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b88d97dc-22d8-42f0-8645-9436ae0581ca
+      X-Runtime:
+      - '0.013733'
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"status":"received","contacts":1,"successes":1,"errors":0}'
+    http_version: 
+  recorded_at: Tue, 18 Aug 2015 05:56:08 GMT
+recorded_with: VCR 2.9.3

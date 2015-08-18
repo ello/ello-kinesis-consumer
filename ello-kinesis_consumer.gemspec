@@ -32,6 +32,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "fakeredis"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "timecop"
 
   spec.add_dependency "aws-sdk-core"
   spec.add_dependency "redis"
