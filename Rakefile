@@ -31,9 +31,8 @@ namespace :ello do
     begin
       Ello::KinesisConsumer::KnowtifyProcessor.new.run!
     rescue StandardError => e
-      if defined?(Honeybadger)
-        Honeybadger.notify(e)
-      end
+      Honeybadger.notify(e) if defined?(Honeybadger)
+      raise e
     end
   end
 end
