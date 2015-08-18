@@ -13,29 +13,35 @@ module Ello
         @stream_reader.run! do |record, schema_name|
           @logger.info "#{schema_name}: #{record}"
           method_name = schema_name.underscore
-          if respond_to?(method_name)
-            send method_name, record
-          end
+          send method_name, record if respond_to?(method_name)
         end
       end
 
       def user_was_created(record)
-        knowtify_client.upsert [{ email: record['email'],
-                                  data: {
-                                    username: record['username'],
-                                    created_at: Time.at(record['created_at']).to_datetime
-                                  }
-                                }]
+        begin
+          knowtify_client.upsert [{ email: record['email'],
+                                    data: {
+                                      username: record['username'],
+                                      created_at: Time.at(record['created_at']).to_datetime
+                                    }
+                                  }]
+        rescue TypeError
+          @logger.info "Unable to parse date: #{record['created_at']}"
+        end
       end
 
       def user_changed_email(record)
-        knowtify_client.delete [ record['previous_email'] ]
-        knowtify_client.upsert [{ email: record['email'],
-                                  data: {
-                                    username: record['username'],
-                                    created_at: Time.at(record['created_at']).to_datetime
-                                  }
-                                }]
+        begin
+          knowtify_client.delete [ record['previous_email'] ]
+          knowtify_client.upsert [{ email: record['email'],
+                                    data: {
+                                      username: record['username'],
+                                      created_at: Time.at(record['created_at']).to_datetime
+                                    }
+                                  }]
+        rescue TypeError
+          @logger.info "Unable to parse date: #{record['created_at']}"
+        end
       end
 
       def user_was_deleted(record)
