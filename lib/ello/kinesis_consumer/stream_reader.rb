@@ -1,4 +1,5 @@
 require 'aws-sdk-core'
+require 'active_support/notifications'
 
 module Ello
   module KinesisConsumer
@@ -36,8 +37,13 @@ module Ello
               })
 
               resp.records.each do |record|
-                AvroParser.new(record.data).each_with_schema_name(&block)
-                @tracker.last_sequence_number = record.sequence_number
+                ActiveSupport::Notifications.instrument('stream_reader.process_record',
+                                                        stream_name: @stream_name,
+                                                        shard_id: shard_id,
+                                                        ms_behind: resp.millis_behind_latest) do
+                  AvroParser.new(record.data).each_with_schema_name(&block)
+                  @tracker.last_sequence_number = record.sequence_number
+                end
               end
 
               shard_iterator = resp.next_shard_iterator

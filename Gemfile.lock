@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     ello-kinesis-consumer (0.1.0)
+      activesupport (~> 4.2.3)
       avro (~> 1.7.7)
       aws-sdk-core (~> 2.1.13)
       redis (~> 3.2.1)
@@ -9,7 +10,14 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (4.2.3)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
     addressable (2.3.8)
+    aggregate (0.2.2)
     avro (1.7.7)
       multi_json
     aws-sdk-core (2.1.13)
@@ -21,11 +29,21 @@ GEM
     dotenv (2.0.2)
     fakeredis (0.5.0)
       redis (~> 3.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     honeybadger (2.1.0)
+    i18n (0.7.0)
     jmespath (1.0.2)
       multi_json (~> 1.0)
+    json (1.8.3)
+    librato-metrics (1.5.1)
+      aggregate (~> 0.2.2)
+      faraday (~> 0.7)
+      multi_json
     method_source (0.8.2)
+    minitest (5.7.0)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -47,7 +65,10 @@ GEM
     rspec-support (3.3.0)
     safe_yaml (1.0.4)
     slop (3.6.0)
+    thread_safe (0.3.5)
     timecop (0.8.0)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
     vcr (2.9.3)
     webmock (1.20.4)
       addressable (>= 2.3.6)
@@ -62,6 +83,7 @@ DEPENDENCIES
   ello-kinesis-consumer!
   fakeredis
   honeybadger
+  librato-metrics
   pry
   rake (~> 10.0)
   rspec

@@ -30,6 +30,7 @@ require 'ello/kinesis_consumer'
 namespace :ello do
   task :process_knowtify_events do
     begin
+      Ello::LibratoReporter.run!
       Ello::KinesisConsumer::KnowtifyProcessor.new.run!
     rescue StandardError => e
       Honeybadger.notify(e) if defined?(Honeybadger)
