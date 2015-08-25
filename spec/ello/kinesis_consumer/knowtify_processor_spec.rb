@@ -23,6 +23,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
     it 'creates a record in Knowtify' do
       expect_any_instance_of(Knowtify::Client).to receive(:upsert).with([{
         email: 'test@example.com',
+        name: 'testuser',
         data: {
           username: 'testuser',
           created_at: Time.now.to_datetime
@@ -47,6 +48,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       expect_any_instance_of(Knowtify::Client).to receive(:delete).with([ 'test@example.com' ])
       expect_any_instance_of(Knowtify::Client).to receive(:upsert).with([{
         email: 'test2@example.com',
+        name: 'testuser',
         data: {
           username: 'testuser',
           created_at: Time.now.to_datetime

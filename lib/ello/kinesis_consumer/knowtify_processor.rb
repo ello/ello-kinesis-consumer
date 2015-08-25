@@ -20,6 +20,7 @@ module Ello
       def user_was_created(record)
         begin
           knowtify_client.upsert [{ email: record['email'],
+                                    name: record['username'],
                                     data: {
                                       username: record['username'],
                                       created_at: Time.at(record['created_at']).to_datetime
@@ -34,6 +35,7 @@ module Ello
         begin
           knowtify_client.delete [ record['previous_email'] ]
           knowtify_client.upsert [{ email: record['email'],
+                                    name: record['username'],
                                     data: {
                                       username: record['username'],
                                       created_at: Time.at(record['created_at']).to_datetime
