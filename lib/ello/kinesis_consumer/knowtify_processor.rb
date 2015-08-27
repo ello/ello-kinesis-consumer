@@ -23,6 +23,7 @@ module Ello
                                     name: record['username'],
                                     data: {
                                       username: record['username'],
+                                      subscription_preferences: record['subscription_preferences'].symbolize_keys,
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }
                                   }]
@@ -38,6 +39,7 @@ module Ello
                                     name: record['username'],
                                     data: {
                                       username: record['username'],
+                                      subscription_preferences: record['subscription_preferences'].symbolize_keys,
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }
                                   }]

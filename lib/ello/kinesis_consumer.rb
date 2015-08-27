@@ -1,5 +1,6 @@
 require 'logger'
 require 'ello/string_extensions'
+require 'ello/hash_extensions'
 require 'ello/librato_reporter'
 
 require 'ello/kinesis_consumer/version'
