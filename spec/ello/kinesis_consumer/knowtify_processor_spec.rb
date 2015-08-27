@@ -16,7 +16,11 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       {
         'email' => 'test@example.com',
         'username' => 'testuser',
-        'created_at' => Time.now.to_f
+        'created_at' => Time.now.to_f,
+        'subscription_preferences' => {
+          'users_email_list' => true,
+          'onboarding_drip' => true
+        }
       }
     end
 
@@ -26,7 +30,11 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         name: 'testuser',
         data: {
           username: 'testuser',
-          created_at: Time.now.to_datetime
+          created_at: Time.now.to_datetime,
+          subscription_preferences: {
+            users_email_list: true,
+            onboarding_drip: true
+          }
         }
       }])
       processor.run!
@@ -40,7 +48,11 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         'username' => 'testuser',
         'email' => 'test2@example.com',
         'previous_email' => 'test@example.com',
-        'created_at' => Time.now.to_f
+        'created_at' => Time.now.to_f,
+        'subscription_preferences' => {
+          'users_email_list' => true,
+          'onboarding_drip' => true
+        }
       }
     end
 
@@ -51,7 +63,11 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         name: 'testuser',
         data: {
           username: 'testuser',
-          created_at: Time.now.to_datetime
+          created_at: Time.now.to_datetime,
+          subscription_preferences: {
+            users_email_list: true,
+            onboarding_drip: true
+          }
         }
       }])
       processor.run!
@@ -63,7 +79,11 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
     let(:record) do
       {
         'email' => 'test@example.com',
-        'deleted_at' => Time.now.to_f
+        'deleted_at' => Time.now.to_f,
+        'subscription_preferences' => {
+          'users_email_list' => true,
+          'onboarding_drip' => true
+        }
       }
     end
 
