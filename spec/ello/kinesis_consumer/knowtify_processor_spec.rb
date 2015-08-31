@@ -74,6 +74,37 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
     end
   end
 
+  describe 'when presented with a UserChangedSubscriptionPreferences event' do
+    let(:schema_name) { 'user_changed_subscription_preferences' }
+    let(:record) do
+      {
+        'username' => 'testuser',
+        'email' => 'test2@example.com',
+        'created_at' => Time.now.to_f,
+        'subscription_preferences' => {
+          'users_email_list' => true,
+          'onboarding_drip' => true
+        }
+      }
+    end
+
+    it 'updates a record in Knowtify' do
+      expect_any_instance_of(Knowtify::Client).to receive(:upsert).with([{
+        email: 'test2@example.com',
+        name: 'testuser',
+        data: {
+          username: 'testuser',
+          created_at: Time.now.to_datetime,
+          subscription_preferences: {
+            users_email_list: true,
+            onboarding_drip: true
+          }
+        }
+      }])
+      processor.run!
+    end
+  end
+
   describe 'when presented with a UserWasDestroyed event' do
     let(:schema_name) { 'user_was_deleted' }
     let(:record) do
