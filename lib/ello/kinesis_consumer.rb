@@ -9,6 +9,7 @@ require 'ello/kinesis_consumer/sequence_number_tracker'
 require 'ello/kinesis_consumer/stream_reader'
 
 require 'ello/kinesis_consumer/knowtify_processor'
+require 'ello/kinesis_consumer/mailchimp_processor'
 
 module Ello
   module KinesisConsumer
