@@ -4,4 +4,4 @@ machine:
       2.2.2
 dependencies:
   pre:
-    - gem install bundler --pre
+    - gem install bundler -v "~> 1.10.0"
