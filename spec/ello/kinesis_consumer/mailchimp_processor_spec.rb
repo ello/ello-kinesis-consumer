@@ -16,34 +16,64 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
     before do
       allow_any_instance_of(Ello::KinesisConsumer::StreamReader).to receive(:run!).and_yield(record, schema_name)
+      allow_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list)
+      allow_any_instance_of(MailchimpWrapper).to receive(:upsert_to_experimental_list)
+      allow_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list)
+      allow_any_instance_of(MailchimpWrapper).to receive(:remove_from_experimental_list)
     end
 
     describe 'when presented with a UserWasCreated event' do
       let(:schema_name) { 'user_was_created' }
-      let(:record) do
-        {
-          'email' => 'jay@ello.co',
-          'username' => 'jayzes',
-          'created_at' => Time.now.to_f,
-          'subscription_preferences' => {
-            'users_email_list' => true,
-            'onboarding_drip' => true,
-            'daily_ello' => true,
-            'weekly_ello' => false
+      describe 'when the user does not have access to experimental features' do
+        let(:record) do
+          {
+            'email' => 'jay@ello.co',
+            'username' => 'jayzes',
+            'created_at' => Time.now.to_f,
+            'has_experimental_features' => false,
+            'subscription_preferences' => {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => false
+            }
           }
-        }
+        end
+
+        it 'adds to the users list with the proper interest groups' do
+          expect_any_instance_of(MailchimpWrapper).not_to receive(:upsert_to_experimental_list)
+          expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
+            'jay@ello.co',
+            {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => false
+            })
+          processor.run!
+        end
       end
 
-      it 'adds to the users list with the proper interest groups' do
-        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
+      describe 'when the user has access to experimental features' do
+        let(:record) do
           {
-            'users_email_list' => true,
-            'onboarding_drip' => true,
-            'daily_ello' => true,
-            'weekly_ello' => false
-          })
-        processor.run!
+            'email' => 'jay@ello.co',
+            'username' => 'jayzes',
+            'created_at' => Time.now.to_f,
+            'has_experimental_features' => true,
+            'subscription_preferences' => {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => false
+            }
+          }
+        end
+
+        it 'adds the email to the experimental list' do
+          expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_experimental_list).with('jay@ello.co')
+          processor.run!
+        end
       end
     end
 
@@ -119,30 +149,65 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
     describe 'when presented with a UserChangedSubscriptionPreferences event' do
       let(:schema_name) { 'user_changed_subscription_preferences' }
-      let(:record) do
-        {
-          'username' => 'testuser',
-          'email' => 'jay@ello.co',
-          'created_at' => Time.now.to_f,
-          'subscription_preferences' => {
-            'users_email_list' => true,
-            'onboarding_drip' => true,
-            'daily_ello' => true,
-            'weekly_ello' => true
+      describe 'when the user has access to experimental features' do
+        let(:record) do
+          {
+            'username' => 'testuser',
+            'email' => 'jay@ello.co',
+            'created_at' => Time.now.to_f,
+            'has_experimental_features' => true,
+            'subscription_preferences' => {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => true
+            }
           }
-        }
+        end
+
+        it 'updates a record in Mailchimp' do
+          expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
+            'jay@ello.co',
+            {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => true
+            })
+          expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_experimental_list).with('jay@ello.co')
+          processor.run!
+        end
       end
 
-      it 'updates a record in Mailchimp' do
-        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
+      describe 'when the user does not have access to experimental features' do
+        let(:record) do
           {
-            'users_email_list' => true,
-            'onboarding_drip' => true,
-            'daily_ello' => true,
-            'weekly_ello' => true
-          })
-        processor.run!
+            'username' => 'testuser',
+            'email' => 'jay@ello.co',
+            'created_at' => Time.now.to_f,
+            'has_experimental_features' => false,
+            'subscription_preferences' => {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => true
+            }
+          }
+        end
+
+        it 'updates a record in Mailchimp' do
+          expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
+            'jay@ello.co',
+            {
+              'users_email_list' => true,
+              'onboarding_drip' => true,
+              'daily_ello' => true,
+              'weekly_ello' => true
+            })
+          expect_any_instance_of(MailchimpWrapper).not_to receive(:upsert_to_experimental_list)
+          expect_any_instance_of(MailchimpWrapper).to receive(:remove_from_experimental_list).with('jay@ello.co')
+          processor.run!
+        end
       end
     end
 
