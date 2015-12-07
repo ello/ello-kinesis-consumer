@@ -33,4 +33,24 @@ describe MailchimpWrapper, vcr: true do
       expect { wrapper.remove_from_users_list('ops123@ello.co') }.not_to raise_error
     end
   end
+
+  describe 'upserting a user to the experimental list' do
+    it 'adds the user to the list successfully' do
+      result = wrapper.upsert_to_experimental_list 'ops@ello.co'
+      expect(result['email_address']).to eq('ops@ello.co')
+      expect(result['status']).to eq('subscribed')
+      expect(result['list_id']).to eq(ENV['MAILCHIMP_EXPERIMENTAL_LIST_ID'])
+    end
+  end
+
+  describe 'removing a user from the experimental list' do
+    it 'removes the user properly' do
+      result = wrapper.remove_from_experimental_list 'ops@ello.co'
+      expect(result['status']).to eq('unsubscribed')
+    end
+
+    it 'does not bark if the user is not on the list' do
+      expect { wrapper.remove_from_experimental_list('ops123@ello.co') }.not_to raise_error
+    end
+  end
 end

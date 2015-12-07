@@ -16,7 +16,7 @@ VCR.configure do |c|
   c.filter_sensitive_data('<AWS_SECRET_ACCESS_KEY>') { ENV['AWS_SECRET_ACCESS_KEY'] }
   c.filter_sensitive_data('<MAILCHIMP_API_KEY>') { ENV['MAILCHIMP_API_KEY'] }
   c.filter_sensitive_data('<MAILCHIMP_USERS_LIST_ID>') { ENV['MAILCHIMP_USERS_LIST_ID'] }
-  c.filter_sensitive_data('<MAILCHIMP_INVITEES_LIST_ID>') { ENV['MAILCHIMP_INVITEES_LIST_ID'] }
+  c.filter_sensitive_data('<MAILCHIMP_EXPERIMENTAL_LIST_ID>') { ENV['MAILCHIMP_EXPERIMENTAL_LIST_ID'] }
 end
 
 require 'timecop'
