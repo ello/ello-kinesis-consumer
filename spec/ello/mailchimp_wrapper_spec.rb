@@ -16,6 +16,16 @@ describe MailchimpWrapper, vcr: true do
       result = wrapper.upsert_to_users_list 'ops@ello.co', { 'users_email_list' => true,
                                                              'daily_ello' => false,
                                                              'weekly_ello' => false }
+      expect(result['interests']).to eq('c59973acc2' => true,
+                                        'a25ce67eac' => true,
+                                        'bc8eb143f3' => false,
+                                        '6513a586b4' => false)
+    end
+
+    it 'always leaves a user subscribed to the product updates list' do
+      result = wrapper.upsert_to_users_list 'ops@ello.co', { 'users_email_list' => false,
+                                                             'daily_ello' => false,
+                                                             'weekly_ello' => false }
       expect(result['interests']).to eq('c59973acc2' => false,
                                         'a25ce67eac' => true,
                                         'bc8eb143f3' => false,

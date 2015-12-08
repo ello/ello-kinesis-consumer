@@ -4,7 +4,7 @@ require 'digest'
 class MailchimpWrapper
 
   EVENT_TO_MAILCHIMP_PREF_MAPPINGS = {
-    'users_email_list' => 'Ello Product Updates',
+    'users_email_list' => 'Ello News & Features',
     'daily_ello' => 'Best of Ello Daily Updates',
     'weekly_ello' => 'Best of Ello Weekly Updates'
   }
