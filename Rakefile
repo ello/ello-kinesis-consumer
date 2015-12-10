@@ -27,8 +27,7 @@ end
 $LOAD_PATH.unshift File.expand_path('./lib', __FILE__)
 require 'ello/kinesis_consumer'
 
-
-Ello::KinesisConsumer.logger.level = Logger::INFO
+Ello::KinesisConsumer.logger.level = Logger::DEBUG
 
 namespace :ello do
   task :process_knowtify_events do
