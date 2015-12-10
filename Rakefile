@@ -37,4 +37,14 @@ namespace :ello do
       raise e
     end
   end
+
+  task :process_mailchimp_events do
+    begin
+      Ello::LibratoReporter.run!
+      Ello::KinesisConsumer::MailchimpProcessor.new.run!
+    rescue StandardError => e
+      Honeybadger.notify(e) if defined?(Honeybadger)
+      raise e
+    end
+  end
 end
