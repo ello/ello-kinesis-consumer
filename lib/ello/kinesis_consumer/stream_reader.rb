@@ -25,11 +25,13 @@ module Ello
             else
               iterator_opts[:shard_iterator_type] = 'TRIM_HORIZON'
             end
+            @logger.debug "Getting shard iterator for #{@stream_name} / #{seq}"
             resp = client.get_shard_iterator(iterator_opts)
             shard_iterator = resp.shard_iterator
 
             # Iterate!
             loop do
+              sleep 1
               @logger.debug "Getting records for #{shard_iterator}"
               resp = client.get_records({
                 shard_iterator: shard_iterator,
