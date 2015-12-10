@@ -17,10 +17,10 @@ module Ello
         ActiveSupport::Notifications.subscribe('stream_reader.process_record') do |name, start, finish, id, payload|
           @queue.add "#{name}.duration": {
                           value: (finish - start),
-                          source: "#{payload[:stream_name]}:#{payload[:shard_id]}" },
+                          source: "#{payload[:stream_name]}:#{payload[:prefix]}:#{payload[:shard_id]}" },
                      "#{name}.latency": {
                           value: payload[:ms_behind],
-                          source: "#{payload[:stream_name]}:#{payload[:shard_id]}" }
+                          source: "#{payload[:stream_name]}:#{payload[:prefix]}:#{payload[:shard_id]}" }
         end
       end
     end
