@@ -30,7 +30,7 @@ module Ello
 
             # Iterate!
             loop do
-              @logger.info "Getting records for #{shard_iterator}"
+              @logger.debug "Getting records for #{shard_iterator}"
               resp = client.get_records({
                 shard_iterator: shard_iterator,
                 limit: BATCH_SIZE,
@@ -50,7 +50,7 @@ module Ello
             end
 
           rescue Aws::Kinesis::Errors::ExpiredIteratorException
-            @logger.info "Iterator expired! Fetching a new one."
+            @logger.debug "Iterator expired! Fetching a new one."
           end
         end
       end
