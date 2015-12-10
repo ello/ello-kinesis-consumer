@@ -47,6 +47,7 @@ module Ello
               end
 
               shard_iterator = resp.next_shard_iterator
+              sleep 1
             end
 
           rescue Aws::Kinesis::Errors::ExpiredIteratorException
