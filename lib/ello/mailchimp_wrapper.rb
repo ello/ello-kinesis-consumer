@@ -20,12 +20,17 @@ class MailchimpWrapper
 
   def upsert_to_users_list(email, preferences)
     hash = subscriber_hash(email)
-    users_list.members(hash).upsert(
-      body: {
-        email_address: email,
-        status: 'subscribed',
-        interests: prefs_to_interest_groups(preferences)
-      })
+    begin
+      users_list.members(hash).upsert(
+        body: {
+          email_address: email,
+          status: 'subscribed',
+          interests: prefs_to_interest_groups(preferences)
+        })
+    rescue Gibbon::MailChimpError => e
+      # Ideally this would be more specific, but they don't let us just check the e-mail field
+      raise e unless e.status_code == 400
+    end
   end
 
   def remove_from_experimental_list(email)
@@ -39,11 +44,16 @@ class MailchimpWrapper
 
   def upsert_to_experimental_list(email)
     hash = subscriber_hash(email)
-    experimental_list.members(hash).upsert(
-      body: {
-        email_address: email,
-        status: 'subscribed'
-      })
+    begin
+      experimental_list.members(hash).upsert(
+        body: {
+          email_address: email,
+          status: 'subscribed'
+        })
+    rescue Gibbon::MailChimpError => e
+      # Ideally this would be more specific, but they don't let us just check the e-mail field
+      raise e unless e.status_code == 400
+    end
   end
 
   private

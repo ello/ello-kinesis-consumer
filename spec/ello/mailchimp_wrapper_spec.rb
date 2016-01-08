@@ -20,6 +20,10 @@ describe MailchimpWrapper, vcr: true do
                                         'bc8eb143f3' => false,
                                         '6513a586b4' => false)
     end
+
+    it 'does not bark if the user has a bad e-mail address' do
+      expect { result = wrapper.upsert_to_users_list 'ops123', {} }.not_to raise_error
+    end
   end
 
   describe 'removing a user from the users list' do
@@ -39,6 +43,10 @@ describe MailchimpWrapper, vcr: true do
       expect(result['email_address']).to eq('ops@ello.co')
       expect(result['status']).to eq('subscribed')
       expect(result['list_id']).to eq(ENV['MAILCHIMP_EXPERIMENTAL_LIST_ID'])
+    end
+
+    it 'does not bark if the user has a bad e-mail address' do
+      expect { result = wrapper.upsert_to_experimental_list 'ops123' }.not_to raise_error
     end
   end
 
