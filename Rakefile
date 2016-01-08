@@ -45,7 +45,7 @@ namespace :ello do
       Ello::LibratoReporter.run!
       Ello::KinesisConsumer::MailchimpProcessor.new.run!
     rescue StandardError => e
-      e.message = "Mailchimp Error: #{e.message} - #{e.raw_body}" if e.is_a?(Gibbon::MailChimpError)
+      e.message = "Mailchimp Error: #{e.message} - #{e.title} (#{e.status_code}, #{e.detail}) #{e.raw_body}" if e.is_a?(Gibbon::MailChimpError)
       Honeybadger.notify(e) if defined?(Honeybadger)
       raise e
     end
