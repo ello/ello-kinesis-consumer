@@ -11,7 +11,10 @@ module Ello
                                     name: record['username'],
                                     data: {
                                       username: record['username'],
-                                      subscription_preferences: (record['subscription_preferences'] || {}).symbolize_keys,
+                                      subscribed_to_users_email_list: record['subscription_preferences']['users_email_list'],
+                                      subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
+                                      subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
+                                      subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }
                                   }]
@@ -27,7 +30,10 @@ module Ello
                                     name: record['username'],
                                     data: {
                                       username: record['username'],
-                                      subscription_preferences: (record['subscription_preferences'] || {}).symbolize_keys,
+                                      subscribed_to_users_email_list: record['subscription_preferences']['users_email_list'],
+                                      subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
+                                      subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
+                                      subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }
                                   }]
@@ -42,7 +48,10 @@ module Ello
                                     name: record['username'],
                                     data: {
                                       username: record['username'],
-                                      subscription_preferences: (record['subscription_preferences'] || {}).symbolize_keys,
+                                      subscribed_to_users_email_list: record['subscription_preferences']['users_email_list'],
+                                      subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
+                                      subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
+                                      subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }
                                   }]

@@ -41,12 +41,10 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
           data: {
             username: 'testuser',
             created_at: Time.now.to_datetime,
-            subscription_preferences: {
-              users_email_list: true,
-              onboarding_drip: true,
-              daily_ello: true,
-              weekly_ello: true
-            }
+            subscribed_to_users_email_list: true,
+            subscribed_to_onboarding_drip: true,
+            subscribed_to_daily_ello: true,
+            subscribed_to_weekly_ello: true
           }
         }])
         processor.run!
@@ -78,12 +76,10 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
           data: {
             username: 'testuser',
             created_at: Time.now.to_datetime,
-            subscription_preferences: {
-              users_email_list: true,
-              onboarding_drip: true,
-              daily_ello: true,
-              weekly_ello: true
-            }
+            subscribed_to_users_email_list: true,
+            subscribed_to_onboarding_drip: true,
+            subscribed_to_daily_ello: true,
+            subscribed_to_weekly_ello: true
           }
         }])
         processor.run!
@@ -113,12 +109,10 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
           data: {
             username: 'testuser',
             created_at: Time.now.to_datetime,
-            subscription_preferences: {
-              users_email_list: true,
-              onboarding_drip: true,
-              daily_ello: true,
-              weekly_ello: true
-            }
+            subscribed_to_users_email_list: true,
+            subscribed_to_onboarding_drip: true,
+            subscribed_to_daily_ello: true,
+            subscribed_to_weekly_ello: true
           }
         }])
         processor.run!
