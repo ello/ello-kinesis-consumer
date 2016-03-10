@@ -6,6 +6,6 @@ describe Ello::KinesisConsumer do
   end
 
   it 'has a logger' do
-    expect(described_class.logger).to be_a(Logger)
+    expect(StreamReader.logger).to be_a(Logger)
   end
 end

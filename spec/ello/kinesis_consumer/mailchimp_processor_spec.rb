@@ -4,10 +4,9 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
   it 'sets the prefix name to "mailchimp"' do
     expect(described_class.prefix).to eq('mailchimp')
-    expect(Ello::KinesisConsumer::StreamReader).to receive(:new).with(stream_name: 'foo',
-                                                                      prefix: 'mailchimp',
-                                                                      logger: 'bar')
-    described_class.new(stream_name: 'foo', logger: 'bar')
+    expect(StreamReader).to receive(:new).with(stream_name: 'foo',
+                                               prefix: 'mailchimp')
+    described_class.new(stream_name: 'foo')
   end
 
   describe 'processing events' do
@@ -15,7 +14,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
     let(:processor) { described_class.new }
 
     before do
-      allow_any_instance_of(Ello::KinesisConsumer::StreamReader).to receive(:run!).and_yield(record, schema_name)
+      allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, schema_name)
       allow_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list)
       allow_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list)
     end

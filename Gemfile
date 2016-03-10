@@ -6,3 +6,4 @@ gemspec
 
 gem 'honeybadger'
 gem 'librato-metrics'
+gem "kinesis-stream-reader", github: "ello/kinesis-stream-reader"

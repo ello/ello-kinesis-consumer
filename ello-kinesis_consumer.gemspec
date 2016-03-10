@@ -40,5 +40,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "avro", "~> 1.7.7"
   spec.add_dependency "activesupport", "~> 4.2.3"
   spec.add_dependency "gibbon", ">= 2.0.0"
-
 end
