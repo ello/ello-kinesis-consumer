@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ello/kinesis-stream-reader.git
-  revision: 19b0880b185373abfcd86ed079db23a01859c18c
+  revision: ca92d65475188fc5abc2c6ace5ac855f4ba0c65c
   specs:
     kinesis-stream-reader (0.1.0)
       activesupport
@@ -19,9 +19,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     aggregate (0.2.2)
-    avro (1.7.7)
+    avro (1.8.0)
       multi_json
-    aws-sdk-core (2.1.36)
+    aws-sdk-core (2.2.26)
       jmespath (~> 1.0)
     coderay (1.1.0)
     crack (0.4.2)
@@ -81,6 +81,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (~> 4.2.3)
   bundler (~> 1.10)
   dotenv
   fakeredis

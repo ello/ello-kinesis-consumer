@@ -1,4 +1,3 @@
-require 'stream_reader'
 require 'knowtify/client'
 
 module Ello
