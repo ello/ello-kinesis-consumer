@@ -1,17 +1,17 @@
-PATH
-  remote: .
+GIT
+  remote: git://github.com/ello/kinesis-stream-reader.git
+  revision: 19b0880b185373abfcd86ed079db23a01859c18c
   specs:
-    ello-kinesis-consumer (0.1.0)
-      activesupport (~> 4.2.3)
-      avro (~> 1.7.7)
-      aws-sdk-core (~> 2.1.13)
-      gibbon (>= 2.0.0)
-      redis (~> 3.2.1)
+    kinesis-stream-reader (0.1.0)
+      activesupport
+      avro
+      aws-sdk-core
+      redis
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.5)
+    activesupport (4.2.6)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -32,7 +32,7 @@ GEM
       redis (~> 3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    gibbon (2.2.0)
+    gibbon (2.2.1)
       faraday (>= 0.9.1)
       multi_json (>= 1.11.0)
     honeybadger (2.1.0)
@@ -44,7 +44,7 @@ GEM
       faraday (~> 0.7)
       multi_json
     method_source (0.8.2)
-    minitest (5.8.3)
+    minitest (5.8.4)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     pry (0.10.1)
@@ -52,7 +52,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rake (10.4.2)
-    redis (3.2.1)
+    redis (3.2.2)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -83,9 +83,10 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.10)
   dotenv
-  ello-kinesis-consumer!
   fakeredis
+  gibbon (>= 2.0.0)
   honeybadger
+  kinesis-stream-reader!
   librato-metrics
   pry
   rake (~> 10.0)
@@ -95,4 +96,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

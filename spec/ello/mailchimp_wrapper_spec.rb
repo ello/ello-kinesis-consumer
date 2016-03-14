@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe MailchimpWrapper, vcr: true do
-
   let(:wrapper) { described_class.new }
 
   describe 'upserting a user to the users list' do

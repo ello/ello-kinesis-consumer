@@ -1,3 +1,4 @@
+require 'stream_reader'
 require 'knowtify/client'
 
 module Ello
@@ -10,11 +11,10 @@ module Ello
         name.split('::').last.gsub('Processor', '').downcase
       end
 
-      def initialize(stream_name: ENV['KINESIS_STREAM_NAME'], logger: Ello::KinesisConsumer.logger)
+      def initialize(stream_name: ENV['KINESIS_STREAM_NAME'])
         @stream_reader = StreamReader.new(stream_name: stream_name,
-                                          prefix: self.class.prefix,
-                                          logger: logger)
-        @logger = logger
+                                          prefix: self.class.prefix)
+        @logger = StreamReader.logger
       end
 
       def run!

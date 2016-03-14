@@ -4,8 +4,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
 
   it 'sets the prefix name to "knowtify"' do
     expect(described_class.prefix).to eq('knowtify')
-    expect(Ello::KinesisConsumer::StreamReader).to receive(:new).with(stream_name: 'foo', prefix: 'knowtify', logger: 'bar')
-    described_class.new(stream_name: 'foo', logger: 'bar')
+    expect(StreamReader).to receive(:new).with(stream_name: 'foo', prefix: 'knowtify')
+    described_class.new(stream_name: 'foo')
   end
 
   describe 'processing events' do
@@ -15,7 +15,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
     before do
       allow_any_instance_of(Knowtify::Client).to receive(:upsert)
       allow_any_instance_of(Knowtify::Client).to receive(:delete)
-      allow_any_instance_of(Ello::KinesisConsumer::StreamReader).to receive(:run!).and_yield(record, schema_name)
+      allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, schema_name)
     end
 
     describe 'when presented with a UserWasCreated event' do
