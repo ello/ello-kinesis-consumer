@@ -81,9 +81,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 4.2.3)
-  avro (~> 1.7.7)
-  aws-sdk-core (~> 2.1.13)
   bundler (~> 1.10)
   dotenv
   fakeredis
@@ -93,7 +90,6 @@ DEPENDENCIES
   librato-metrics
   pry
   rake (~> 10.0)
-  redis (~> 3.2.1)
   rspec
   timecop
   vcr
