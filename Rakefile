@@ -6,12 +6,11 @@ rescue LoadError
 end
 
 begin
-  require "bundler/gem_tasks"
-  require "rspec/core/rake_task"
+  require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new(:spec)
 
-  task :default => :spec
+  task default: :spec
 
 rescue LoadError
   puts 'Rspec is unavailable, skipping'
@@ -26,8 +25,6 @@ end
 
 $LOAD_PATH.unshift File.expand_path('./lib', __FILE__)
 require 'ello/kinesis_consumer'
-
-Ello::KinesisConsumer.logger.level = Logger::DEBUG
 
 namespace :ello do
   task :process_knowtify_events do
