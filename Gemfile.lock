@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/ello/kinesis-stream-reader.git
-  revision: ca92d65475188fc5abc2c6ace5ac855f4ba0c65c
+  revision: e52c0d67e491440faaac4a2636a3f62473e5685f
   specs:
     kinesis-stream-reader (0.1.0)
       activesupport
-      avro
-      aws-sdk-core
-      redis
+      avro (= 1.7.7)
+      aws-sdk-core (~> 2.2.26)
+      redis (~> 3.2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -19,7 +19,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     aggregate (0.2.2)
-    avro (1.8.0)
+    avro (1.7.7)
       multi_json
     aws-sdk-core (2.2.26)
       jmespath (~> 1.0)
