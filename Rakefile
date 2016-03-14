@@ -23,7 +23,7 @@ rescue LoadError
   puts 'Honeybadger is unavailable, skipping'
 end
 
-$LOAD_PATH.unshift File.expand_path('./lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('./lib', File.dirname(__FILE__))
 require 'ello/kinesis_consumer'
 
 namespace :ello do
