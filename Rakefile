@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require
+
 begin
   require 'dotenv'
   Dotenv.load
@@ -17,7 +21,6 @@ rescue LoadError
 end
 
 begin
-  require 'honeybadger'
   Honeybadger.start
 rescue LoadError
   puts 'Honeybadger is unavailable, skipping'
