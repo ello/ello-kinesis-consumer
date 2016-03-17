@@ -32,7 +32,6 @@ require 'ello/kinesis_consumer'
 namespace :ello do
   task :process_knowtify_events do
     begin
-      Ello::LibratoReporter.run!
       Ello::KinesisConsumer::KnowtifyProcessor.new.run!
     rescue StandardError => e
       Honeybadger.notify(e) if defined?(Honeybadger)
@@ -42,7 +41,6 @@ namespace :ello do
 
   task :process_mailchimp_events do
     begin
-      Ello::LibratoReporter.run!
       Ello::KinesisConsumer::MailchimpProcessor.new.run!
     rescue StandardError => e
       e.message = "Mailchimp Error: #{e.message} - #{e.title} (#{e.status_code}, #{e.detail}) #{e.raw_body}" if e.is_a?(Gibbon::MailChimpError)
