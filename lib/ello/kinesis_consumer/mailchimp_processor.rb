@@ -6,7 +6,7 @@ module Ello
     class MailchimpProcessor < BaseProcessor
 
       def user_was_created(record)
-        unless record['email'] == '***REMOVED***'
+        unless record['email'] == 'asdf1234@mailinator.com'
           mailchimp.upsert_to_users_list record['email'], record['subscription_preferences']
         end
       end
