@@ -24,7 +24,7 @@ class MailchimpWrapper
       users_list.members(hash).upsert(
         body: {
           email_address: email,
-          status: 'subscribed',
+          status_if_new: 'subscribed',
           interests: prefs_to_interest_groups(preferences)
         })
     rescue Gibbon::MailChimpError => e
