@@ -19,6 +19,7 @@ class MailchimpWrapper
   end
 
   def upsert_to_users_list(email, preferences)
+    return if skip_list.include?(email)
     hash = subscriber_hash(email)
     begin
       users_list.members(hash).upsert(
@@ -34,6 +35,10 @@ class MailchimpWrapper
   end
 
   private
+
+  def skip_list
+    (ENV['EMAILS_TO_SKIP'] || '').split(',').map(&:strip)
+  end
 
   def users_list
     gibbon.lists(ENV['MAILCHIMP_USERS_LIST_ID'])

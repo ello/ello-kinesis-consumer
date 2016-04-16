@@ -23,6 +23,12 @@ describe MailchimpWrapper, vcr: true do
     it 'does not bark if the user has a bad e-mail address' do
       expect { wrapper.upsert_to_users_list 'ops123', {} }.not_to raise_error
     end
+
+    it 'return nil if an e-mail is in the skiplist' do
+      ENV['EMAILS_TO_SKIP'] = 'bad,addresses'
+      result = wrapper.upsert_to_users_list 'bad', {}
+      expect(result).to be_nil
+    end
   end
 
   describe 'removing a user from the users list' do
