@@ -1,16 +1,30 @@
+<img src="http://d324imu86q1bqn.cloudfront.net/uploads/user/avatar/641/large_Ello.1000x1000.png" width="200px" height="200px" />
+
 # Ello Kinesis Consumer
 
-## Usage
+[![Build Status](https://travis-ci.org/ello/ello-kinesis-consumer.svg?branch=master)](https://travis-ci.org/ello/ello-kinesis-consumer)
+[![Code Climate](https://codeclimate.com/github/ello/ello-kinesis-consumer/badges/gpa.svg)](https://codeclimate.com/github/ello/ello-kinesis-consumer)
+[![Security](https://hakiri.io/github/ello/ello-kinesis-consumer/master.svg)](https://hakiri.io/github/ello/ello-kinesis-consumer/master)
 
-TODO: Write usage instructions here
+This is a deployable app that consumes domain events from Kinesis to syndicate
+data out to several third-party integrations.
 
-## Development
+Currently, it integrates with Mailchimp (for newsletter management) and
+Knowtify (for drip campaigns).
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Setup
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+This project uses [dotenv](https://github.com/bkeepers/dotenv) to
+manage application configuration in development.  To get started, you
+need to `cp .env.example .env` to setup the local development
+environment variables.
 
-## Contributing
+You'll also need a working Ruby 2.3 setup with bundler
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ello/ello-kinesis-consumer.
+Once those are set up, you can run the tests with `rake`.
 
+## License
+Ello Notifications is released under the [MIT License](blob/master/LICENSE.txt)
+
+## Code of Conduct
+Ello was created by idealists who believe that the essential nature of all human beings is to be kind, considerate, helpful, intelligent, responsible, and respectful of others. To that end, we will be enforcing [the Ello rules](https://ello.co/wtf/policies/rules/) within all of our open source projects. If you don’t follow the rules, you risk being ignored, banned, or reported for abuse.
