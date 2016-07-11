@@ -1,0 +1,11 @@
+language: ruby
+rvm: 2.3.0
+before_script:
+- cp .env.example .env
+notifications:
+  email: false
+  slack:
+    on_success: change
+    on_failure: change
+    rooms:
+      secure: FNPQHroWM3P3fMsJn9B7TAT8kSt9oufV1u3K+FDmGoEtE0iIjD04Qmz97q7Vorzp38pZBC0JeAvhGiUiRBB5pJ7vvXlaF8vgoNYZGP1/iQkpNNEJNtcAyeF1t0PytSpvB8LCAdvp6Ql6uhMofVxaYJbCBGK7Jbwmo375ebEK5wLkasYIMF7zNAIUEkdxrPNneMFNJQFQOmuAFvJpOUnCs7+MTyroGeShRuSbXLbaFxIGqmMfTqKudA+rAH9y4/DJbbnp5Kp65Box2bmSQqaopr3iDbSmXbiNAopLgPyi0ZfHYvQnHmBi9ekZE+5Sq/HcEcA8v3GyEwYvXRi1i5nXrA+gosQCf38nQp/A+ukIprkELWEPWQUjH2MUJk2BS9Qr16ck0mA9IJv3iDy3S4wnoMH2FMfDH5IuYE47xSEoCjWeu+EjORCmLhCLGTS1mjQaVd0qa5uCf3a5jz5yf0vdIm7D1OEYVwCjV3W0zzdH0r2bEJa46rLTnbh3BCCW36ivBHaTgXQVu/Wtxq8e6a02CRcvstK9aNZOJJprlVLB2mbb6riFcLuEEdul7lGgExaulHzHU64y7CM4Yqz6Y+sGYXxm2YVfIsAYFUJ8RGBelK1VMIGiHZWC/PLAImwFMfpzNWHIXUEj+TBN6ack7W3SGzLwUTCDxglteuvQ6qblf54=
