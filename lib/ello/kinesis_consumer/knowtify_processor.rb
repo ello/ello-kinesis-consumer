@@ -15,6 +15,7 @@ module Ello
                                       subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
                                       subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
                                       subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
+                                      followed_categories: record['followed_categories'],
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }
                                   }]

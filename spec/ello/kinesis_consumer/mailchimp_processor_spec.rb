@@ -25,6 +25,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
         {
           'email' => 'jay@ello.co',
           'username' => 'jayzes',
+          'followed_categories' => ['Art'],
           'created_at' => Time.now.to_f,
           'has_experimental_features' => false,
           'subscription_preferences' => {
@@ -44,7 +45,8 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => false
-          })
+          },
+          ['Art'])
         processor.run!
       end
     end

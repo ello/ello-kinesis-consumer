@@ -6,7 +6,9 @@ module Ello
     class MailchimpProcessor < BaseProcessor
 
       def user_was_created(record)
-        mailchimp.upsert_to_users_list record['email'], record['subscription_preferences']
+        mailchimp.upsert_to_users_list record['email'],
+                                       record['subscription_preferences'],
+                                       record['followed_categories']
       end
 
       def user_changed_email(record)
