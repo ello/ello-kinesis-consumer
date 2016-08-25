@@ -119,13 +119,11 @@ class MailchimpWrapper
 
   def assign_category_prefs(categories, prefs)
     categories.each do |category|
-      if prefs.has_key?(category)
-        prefs[category] = true
-      else
+      unless prefs.key?(category)
         id = interest_categories_id_for_categories
         categories_list.interest_categories(id).interests.create(body: { name: category.capitalize })
-        prefs[category] = true
       end
+      prefs[category] = true
     end
     prefs
   end
