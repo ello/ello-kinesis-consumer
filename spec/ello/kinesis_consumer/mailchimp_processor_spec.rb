@@ -45,8 +45,8 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => false
-          })
-        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_categories_list).with('jay@ello.co', ['Art'])
+          },
+          ['Art'])
         processor.run!
       end
     end

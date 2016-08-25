@@ -25,14 +25,14 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 705812a7-e369-4e2a-b8de-14cb3819d046
+      - 7d536518-763f-4346-9a0c-16ed361dc585
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json>;
         rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:29 GMT
+      - Thu, 25 Aug 2016 22:30:31 GMT
       Content-Length:
       - '3639'
       Connection:
@@ -44,7 +44,7 @@ http_interactions:
       string: '{"list_id":"<MAILCHIMP_USERS_LIST_ID>","categories":[{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"96bcd68c64","title":"Ello
         Newsletters","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]},{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"5a27fed5f5","title":"Categories","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]}],"total_items":2,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:29 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:32 GMT
 - request:
     method: get
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests
@@ -70,14 +70,14 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 437d234c-3057-4f41-b135-179740f6a4a6
+      - efe26bc7-d1bb-41c2-ab5a-9610bf3ea421
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json>;
         rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:29 GMT
+      - Thu, 25 Aug 2016 22:30:32 GMT
       Content-Length:
       - '4428'
       Connection:
@@ -91,7 +91,7 @@ http_interactions:
         of Ello Weekly Updates","subscriber_count":"1661066","display_order":2,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests/bc8eb143f3","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests/bc8eb143f3","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests/bc8eb143f3","method":"DELETE"}]},{"category_id":"96bcd68c64","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"6513a586b4","name":"Best
         of Ello Daily Updates","subscriber_count":"1654037","display_order":3,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests/6513a586b4","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests/6513a586b4","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests/6513a586b4","method":"DELETE"}]}],"list_id":"<MAILCHIMP_USERS_LIST_ID>","category_id":"96bcd68c64","total_items":3,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:29 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:32 GMT
 - request:
     method: get
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories
@@ -117,14 +117,14 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 26cdfd08-bc34-4ed2-a5e9-6289e5bec235
+      - e0303737-0d6b-4087-b71d-4a99262ee4b1
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json>;
         rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:30 GMT
+      - Thu, 25 Aug 2016 22:30:32 GMT
       Content-Length:
       - '3639'
       Connection:
@@ -136,7 +136,7 @@ http_interactions:
       string: '{"list_id":"<MAILCHIMP_USERS_LIST_ID>","categories":[{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"96bcd68c64","title":"Ello
         Newsletters","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]},{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"5a27fed5f5","title":"Categories","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]}],"total_items":2,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:30 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:32 GMT
 - request:
     method: get
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests
@@ -162,14 +162,14 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 3a421989-e568-4499-a227-d6fa5015ed16
+      - 22170b97-b4bd-4c11-a81b-0bd0a09edda0
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json>;
         rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:30 GMT
+      - Thu, 25 Aug 2016 22:30:32 GMT
       Content-Length:
       - '4351'
       Connection:
@@ -180,7 +180,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"interests":[{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"d1b5768f32","name":"Art","subscriber_count":"2","display_order":4,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"a1a17a50fb","name":"Music","subscriber_count":"1","display_order":5,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"aef7706fe9","name":"Design","subscriber_count":"0","display_order":7,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"DELETE"}]}],"list_id":"<MAILCHIMP_USERS_LIST_ID>","category_id":"5a27fed5f5","total_items":3,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:30 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:32 GMT
 - request:
     method: get
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories
@@ -206,14 +206,14 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 50682bdc-d57e-4717-9f38-edf2955a5ba9
+      - 9eca585b-891d-4e35-a62e-b09fa20dea11
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json>;
         rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:30 GMT
+      - Thu, 25 Aug 2016 22:30:32 GMT
       Content-Length:
       - '3639'
       Connection:
@@ -225,7 +225,96 @@ http_interactions:
       string: '{"list_id":"<MAILCHIMP_USERS_LIST_ID>","categories":[{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"96bcd68c64","title":"Ello
         Newsletters","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]},{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"5a27fed5f5","title":"Categories","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]}],"total_items":2,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:30 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:32 GMT
+- request:
+    method: post
+    uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests
+    body:
+      encoding: UTF-8
+      string: '{"name":"Writing"}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Id:
+      - d18b0a4f-e94c-4af6-81d3-acd2fbed45db
+      Link:
+      - <https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json>;
+        rel="describedBy"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Thu, 25 Aug 2016 22:30:37 GMT
+      Content-Length:
+      - '1143'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+    body:
+      encoding: UTF-8
+      string: '{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"81998a93da","name":"Writing","subscriber_count":"0","display_order":8,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/81998a93da","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/81998a93da","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/81998a93da","method":"DELETE"}]}'
+    http_version: 
+  recorded_at: Thu, 25 Aug 2016 22:30:38 GMT
+- request:
+    method: get
+    uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Id:
+      - d970eaa1-341e-4008-b449-180a56b08ade
+      Link:
+      - <https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json>;
+        rel="describedBy"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Thu, 25 Aug 2016 22:30:38 GMT
+      Content-Length:
+      - '3639'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+    body:
+      encoding: UTF-8
+      string: '{"list_id":"<MAILCHIMP_USERS_LIST_ID>","categories":[{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"96bcd68c64","title":"Ello
+        Newsletters","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/96bcd68c64/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]},{"list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"5a27fed5f5","title":"Categories","display_order":0,"type":"checkboxes","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"DELETE"},{"rel":"interests","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"}]}],"total_items":2,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/InterestCategories.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"}]}'
+    http_version: 
+  recorded_at: Thu, 25 Aug 2016 22:30:38 GMT
 - request:
     method: get
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests
@@ -251,31 +340,31 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 97d2a1b5-41a0-48d9-8049-78976504392d
+      - ea155eac-3f1f-4e4c-b828-02ed5bc10b93
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json>;
         rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:30 GMT
+      - Thu, 25 Aug 2016 22:30:38 GMT
       Content-Length:
-      - '4351'
+      - '5495'
       Connection:
       - keep-alive
       Set-Cookie:
       - _AVESTA_ENVIRONMENT=prod; path=/
     body:
       encoding: UTF-8
-      string: '{"interests":[{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"d1b5768f32","name":"Art","subscriber_count":"2","display_order":4,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"a1a17a50fb","name":"Music","subscriber_count":"1","display_order":5,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"aef7706fe9","name":"Design","subscriber_count":"0","display_order":7,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"DELETE"}]}],"list_id":"<MAILCHIMP_USERS_LIST_ID>","category_id":"5a27fed5f5","total_items":3,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"}]}'
+      string: '{"interests":[{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"d1b5768f32","name":"Art","subscriber_count":"2","display_order":4,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/d1b5768f32","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"a1a17a50fb","name":"Music","subscriber_count":"1","display_order":5,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/a1a17a50fb","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"aef7706fe9","name":"Design","subscriber_count":"0","display_order":7,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/aef7706fe9","method":"DELETE"}]},{"category_id":"5a27fed5f5","list_id":"<MAILCHIMP_USERS_LIST_ID>","id":"81998a93da","name":"Writing","subscriber_count":"0","display_order":8,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/81998a93da","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/81998a93da","method":"PATCH","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests/81998a93da","method":"DELETE"}]}],"list_id":"<MAILCHIMP_USERS_LIST_ID>","category_id":"5a27fed5f5","total_items":4,"_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Interests.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/InterestCategories/Instance.json"},{"rel":"create","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/interest-categories/5a27fed5f5/interests","method":"POST","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Interests/Instance.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:30 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:38 GMT
 - request:
     method: put
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec
     body:
       encoding: UTF-8
-      string: '{"email_address":"ops@ello.co","status_if_new":"subscribed","interests":{"c59973acc2":true,"6513a586b4":false,"bc8eb143f3":false,"d1b5768f32":true,"a1a17a50fb":true,"aef7706fe9":false}}'
+      string: '{"email_address":"ops@ello.co","status_if_new":"subscribed","interests":{"c59973acc2":true,"6513a586b4":false,"bc8eb143f3":false,"d1b5768f32":true,"a1a17a50fb":true,"aef7706fe9":false,"81998a93da":true}}'
     headers:
       User-Agent:
       - Faraday v0.9.2
@@ -295,23 +384,23 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Request-Id:
-      - 9a602bcb-683a-47c5-b214-7f9c94ce959f
+      - b5c72e16-ebc3-46af-b491-a498434b034c
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json>; rel="describedBy",
         <https://us3.admin.mailchimp.com/lists/members/view?id=268409177>; rel="dashboard"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 25 Aug 2016 22:30:31 GMT
+      - Thu, 25 Aug 2016 22:30:38 GMT
       Content-Length:
-      - '2486'
+      - '2504'
       Connection:
       - keep-alive
       Set-Cookie:
       - _AVESTA_ENVIRONMENT=prod; path=/
     body:
       encoding: UTF-8
-      string: '{"id":"4214831471a4b789a6c9f249b9ba46ec","email_address":"ops@ello.co","unique_email_id":"3d1355be4b","email_type":"html","status":"unsubscribed","merge_fields":{"FNAME":"","LNAME":"","FEATURED":"","EXPERIMENT":""},"interests":{"c59973acc2":true,"bc8eb143f3":false,"6513a586b4":false,"d1b5768f32":true,"a1a17a50fb":true,"aef7706fe9":false},"stats":{"avg_open_rate":0,"avg_click_rate":0},"ip_signup":"","timestamp_signup":"","ip_opt":"96.90.179.38","timestamp_opt":"2015-12-03T23:27:57+00:00","member_rating":2,"last_changed":"2016-08-25T22:30:31+00:00","language":"","vip":false,"email_client":"","location":{"latitude":0,"longitude":0,"gmtoff":0,"dstoff":0,"country_code":"","timezone":""},"list_id":"<MAILCHIMP_USERS_LIST_ID>","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Members.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"PATCH","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json"},{"rel":"upsert","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"PUT","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"DELETE"},{"rel":"activity","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec/activity","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Activity/Collection.json"},{"rel":"goals","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec/goals","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Goals/Collection.json"},{"rel":"notes","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec/notes","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Notes/Collection.json"}]}'
+      string: '{"id":"4214831471a4b789a6c9f249b9ba46ec","email_address":"ops@ello.co","unique_email_id":"3d1355be4b","email_type":"html","status":"unsubscribed","merge_fields":{"FNAME":"","LNAME":"","FEATURED":"","EXPERIMENT":""},"interests":{"c59973acc2":true,"bc8eb143f3":false,"6513a586b4":false,"d1b5768f32":true,"a1a17a50fb":true,"aef7706fe9":false,"81998a93da":true},"stats":{"avg_open_rate":0,"avg_click_rate":0},"ip_signup":"","timestamp_signup":"","ip_opt":"96.90.179.38","timestamp_opt":"2015-12-03T23:27:57+00:00","member_rating":2,"last_changed":"2016-08-25T22:30:38+00:00","language":"","vip":false,"email_client":"","location":{"latitude":0,"longitude":0,"gmtoff":0,"dstoff":0,"country_code":"","timezone":""},"list_id":"<MAILCHIMP_USERS_LIST_ID>","_links":[{"rel":"self","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json"},{"rel":"parent","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Collection.json","schema":"https://us3.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/Members.json"},{"rel":"update","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"PATCH","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json"},{"rel":"upsert","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"PUT","schema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Instance.json"},{"rel":"delete","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec","method":"DELETE"},{"rel":"activity","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec/activity","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Activity/Collection.json"},{"rel":"goals","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec/goals","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Goals/Collection.json"},{"rel":"notes","href":"https://us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/4214831471a4b789a6c9f249b9ba46ec/notes","method":"GET","targetSchema":"https://us3.api.mailchimp.com/schema/3.0/Lists/Members/Notes/Collection.json"}]}'
     http_version: 
-  recorded_at: Thu, 25 Aug 2016 22:30:31 GMT
+  recorded_at: Thu, 25 Aug 2016 22:30:38 GMT
 recorded_with: VCR 3.0.1

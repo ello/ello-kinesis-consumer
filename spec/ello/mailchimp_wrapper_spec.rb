@@ -5,19 +5,33 @@ describe MailchimpWrapper, vcr: true do
 
   describe 'upserting a user to the users list' do
     it 'adds the user to the list successfully' do
-      result = wrapper.upsert_to_users_list 'ops@ello.co', {}
-      expect(result['email_address']).to eq('ops@ello.co')
+      result = wrapper.upsert_to_users_list 'asdf1234@ello.co', {}
+      expect(result['email_address']).to eq('asdf1234@ello.co')
       expect(result['status']).to eq('subscribed')
       expect(result['list_id']).to eq(ENV['MAILCHIMP_USERS_LIST_ID'])
     end
 
     it 'sets/maps interest groups properly' do
-      result = wrapper.upsert_to_users_list 'ops@ello.co', { 'users_email_list' => true,
-                                                             'daily_ello' => false,
-                                                             'weekly_ello' => false }
+      prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
+      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash, %w(art music)
       expect(result['interests']).to eq('c59973acc2' => true,
                                         'bc8eb143f3' => false,
-                                        '6513a586b4' => false)
+                                        '6513a586b4' => false,
+                                        'd1b5768f32' => true,
+                                        'a1a17a50fb' => true,
+                                        'aef7706fe9' => false)
+    end
+
+    it 'when a category doesnt exist and needs to be created' do
+      prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
+      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash, %w(art music writing)
+      expect(result['interests']).to eq('c59973acc2' => true,
+                                        'bc8eb143f3' => false,
+                                        '6513a586b4' => false,
+                                        'd1b5768f32' => true,
+                                        'a1a17a50fb' => true,
+                                        'aef7706fe9' => false,
+                                        '81998a93da' => true)
     end
 
     it 'does not bark if the user has a bad e-mail address' do
@@ -39,23 +53,6 @@ describe MailchimpWrapper, vcr: true do
 
     it 'does not bark if the user is not on the list' do
       expect { wrapper.remove_from_users_list('ops123@ello.co') }.not_to raise_error
-    end
-  end
-
-  describe 'upserting a user to the categories list' do
-    it 'sets/maps interest groups properly' do
-      result = wrapper.upsert_to_categories_list 'ops@ello.co', %w(art music)
-      expect(result['interests']).to eq('b69a899898' => true,
-                                        'c7e1e11b24' => true,
-                                        '67a5758600' => false)
-    end
-
-    it 'when a category doesnt exist and needs to be created' do
-      result = wrapper.upsert_to_categories_list 'ops@ello.co', %w(art music writing)
-      expect(result['interests']).to eq('b69a899898' => true,
-                                        'c7e1e11b24' => true,
-                                        "5999dab568" => true,
-                                        '67a5758600' => false)
     end
   end
 end
