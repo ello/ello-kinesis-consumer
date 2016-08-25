@@ -18,7 +18,6 @@ VCR.configure do |c|
   c.filter_sensitive_data('<MAILCHIMP_API_KEY>') { ENV['MAILCHIMP_API_KEY'] }
   c.filter_sensitive_data('<MAILCHIMP_USERS_LIST_ID>') { ENV['MAILCHIMP_USERS_LIST_ID'] }
   c.filter_sensitive_data('<MAILCHIMP_EXPERIMENTAL_LIST_ID>') { ENV['MAILCHIMP_EXPERIMENTAL_LIST_ID'] }
-  c.filter_sensitive_data('<MAILCHIMP_CATEGORIES_LIST_ID>') { ENV['MAILCHIMP_CATEGORIES_LIST_ID'] }
 end
 
 require 'timecop'
