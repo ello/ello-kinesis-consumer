@@ -34,6 +34,18 @@ describe MailchimpWrapper, vcr: true do
                                         '81998a93da' => true)
     end
 
+    it 'when there are no categories' do
+      prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
+      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash
+      expect(result['interests']).to eq('c59973acc2' => true,
+                                        'bc8eb143f3' => false,
+                                        '6513a586b4' => false,
+                                        'd1b5768f32' => false,
+                                        'a1a17a50fb' => false,
+                                        'aef7706fe9' => false,
+                                        '81998a93da' => false)
+    end
+
     it 'does not bark if the user has a bad e-mail address' do
       expect { wrapper.upsert_to_users_list 'ops123', {} }.not_to raise_error
     end
