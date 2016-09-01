@@ -26,7 +26,7 @@ class MailchimpWrapper
         body: {
           email_address: email,
           status_if_new: 'subscribed',
-          interests: prefs_to_interest_groups(preferences, categories)
+          interests: prefs_to_interest_groups(preferences, categories.map(&:downcase))
         })
     rescue Gibbon::MailChimpError => e
       # Ideally this would be more specific, but they don't let us just check the e-mail field

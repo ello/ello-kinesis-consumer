@@ -13,7 +13,7 @@ describe MailchimpWrapper, vcr: true do
 
     it 'sets/maps interest groups properly' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
-      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash, %w(art music)
+      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash, %w(Art Music)
       expect(result['interests']).to eq('c59973acc2' => true,
                                         'bc8eb143f3' => false,
                                         '6513a586b4' => false,
@@ -24,7 +24,7 @@ describe MailchimpWrapper, vcr: true do
 
     it 'when a category doesnt exist and needs to be created' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
-      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash, %w(art music writing)
+      result = wrapper.upsert_to_users_list 'ops@ello.co', prefs_hash, %w(Art Music Writing)
       expect(result['interests']).to eq('c59973acc2' => true,
                                         'bc8eb143f3' => false,
                                         '6513a586b4' => false,
