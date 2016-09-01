@@ -24,6 +24,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         {
           'email' => 'test@example.com',
           'username' => 'testuser',
+          'followed_categories' => ['Art'],
           'created_at' => Time.now.to_f,
           'subscription_preferences' => {
             'users_email_list' => true,
@@ -40,6 +41,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
           name: 'testuser',
           data: {
             username: 'testuser',
+            followed_categories: ['Art'],
             created_at: Time.now.to_datetime,
             subscribed_to_users_email_list: true,
             subscribed_to_onboarding_drip: true,
