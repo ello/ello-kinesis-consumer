@@ -45,8 +45,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => false
-          },
-          ['Art'])
+          })
         processor.run!
       end
     end
@@ -91,6 +90,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
           'email' => 'jay@ello.co',
           'created_at' => Time.now.to_f,
           'has_experimental_features' => false,
+          'followed_categories' => %w(Art Writing),
           'subscription_preferences' => {
             'users_email_list' => true,
             'onboarding_drip' => true,
@@ -108,7 +108,8 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => true
-          })
+          },
+          %w(Art Writing))
         processor.run!
       end
     end
