@@ -7,8 +7,7 @@ module Ello
 
       def user_was_created(record)
         mailchimp.upsert_to_users_list record['email'],
-                                       record['subscription_preferences'],
-                                       record['followed_categories'] || []
+                                       record['subscription_preferences']
       end
 
       def user_changed_email(record)
@@ -17,7 +16,9 @@ module Ello
       end
 
       def user_changed_subscription_preferences(record)
-        mailchimp.upsert_to_users_list record['email'], record['subscription_preferences']
+        mailchimp.upsert_to_users_list record['email'],
+                                       record['subscription_preferences'],
+                                       record['followed_categories'] || []
       end
 
       def user_was_deleted(record)
