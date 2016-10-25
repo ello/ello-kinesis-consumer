@@ -48,6 +48,7 @@ GEM
     minitest (5.9.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    newrelic_rpm (3.17.0.325)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -90,6 +91,7 @@ DEPENDENCIES
   gibbon (>= 2.0.0)
   honeybadger
   kinesis-stream-reader!
+  newrelic_rpm
   pry
   rake (~> 10.0)
   rspec

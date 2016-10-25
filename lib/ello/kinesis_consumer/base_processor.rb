@@ -1,8 +1,11 @@
 require 'knowtify/client'
+require 'newrelic_rpm'
 
 module Ello
   module KinesisConsumer
     class BaseProcessor
+
+      include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
 
       attr_reader :stream_reader
 
@@ -17,7 +20,8 @@ module Ello
       end
 
       def run!
-        @stream_reader.run! do |record, schema_name|
+        batch_size = Integer(ENV['CONSUMER_BATCH_SIZE'] || StreamReader::DEFAULT_BATCH_SIZE)
+        @stream_reader.run!(batch_size: batch_size) do |record, schema_name|
           @logger.info "#{schema_name}: #{record}"
           method_name = schema_name.underscore
           send method_name, record if respond_to?(method_name)
