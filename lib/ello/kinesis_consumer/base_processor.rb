@@ -1,8 +1,11 @@
 require 'knowtify/client'
+require 'newrelic_rpm'
 
 module Ello
   module KinesisConsumer
     class BaseProcessor
+
+      include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
 
       attr_reader :stream_reader
 

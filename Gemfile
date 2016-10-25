@@ -7,6 +7,7 @@ gem 'honeybadger'
 gem 'kinesis-stream-reader', github: 'ello/kinesis-stream-reader', require: 'stream_reader'
 gem 'activesupport', '~> 4.2.3'
 gem 'rake', '~> 10.0'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'bundler', '~> 1.10'

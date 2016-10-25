@@ -23,6 +23,8 @@ module Ello
           @logger.info "Unable to parse date: #{record['created_at']}"
         end
       end
+      add_transaction_tracer :user_was_created, category: :task
+
 
       def user_changed_email(record)
         begin
@@ -42,6 +44,7 @@ module Ello
           @logger.info "Unable to parse date: #{record['created_at']}"
         end
       end
+      add_transaction_tracer :user_changed_email, category: :task
 
       def user_changed_subscription_preferences(record)
         begin
@@ -60,10 +63,12 @@ module Ello
           @logger.info "Unable to parse date: #{record['created_at']}"
         end
       end
+      add_transaction_tracer :user_changed_subscription_preferences, category: :task
 
       def user_was_deleted(record)
         knowtify_client.delete [ record['email'] ]
       end
+      add_transaction_tracer :user_was_deleted, category: :task
 
       private
 
