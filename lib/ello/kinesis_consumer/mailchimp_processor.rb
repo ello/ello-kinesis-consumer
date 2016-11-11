@@ -5,6 +5,11 @@ module Ello
   module KinesisConsumer
     class MailchimpProcessor < BaseProcessor
 
+      def invitation_was_sent(record)
+        mailchimp.upsert_to_users_list record['email'],
+                                       record['subscription_preferences']
+      end
+
       def user_was_created(record)
         mailchimp.upsert_to_users_list record['email'],
                                        record['subscription_preferences']

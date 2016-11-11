@@ -19,6 +19,35 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
       allow_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list)
     end
 
+    describe 'when presented with a NewUserInviteSent event' do
+      let(:schema_name) { 'invitation_was_sent' }
+      let(:record) do
+        {
+          'email' => 'jay@ello.co',
+          'subscription_preferences' => {
+            'users_email_list' => true,
+            'invitation_drip' => true,
+            'onboarding_drip' => false,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          }
+        }
+      end
+
+      it 'adds to the users list with the proper interest groups' do
+        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
+          'jay@ello.co',
+          {
+            'users_email_list' => true,
+            'invitation_drip' => true,
+            'onboarding_drip' => false,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          })
+        processor.run!
+      end
+    end
+
     describe 'when presented with a UserWasCreated event' do
       let(:schema_name) { 'user_was_created' }
       let(:record) do
