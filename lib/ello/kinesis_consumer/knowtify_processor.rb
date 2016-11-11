@@ -5,6 +5,17 @@ module Ello
   module KinesisConsumer
     class KnowtifyProcessor < BaseProcessor
 
+      def invitation_was_sent(record)
+        knowtify_client.upsert [{ email: record['email'],
+                                  data: {
+                                    subscribed_to_users_email_list: record['subscription_preferences']['users_email_list'],
+                                    subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
+                                    subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
+                                    subscribed_to_invitation_drip: record['subscription_preferences']['invitation_drip'],
+                                  }
+                                }]
+      end
+
       def user_was_created(record)
         begin
           knowtify_client.upsert [{ email: record['email'],

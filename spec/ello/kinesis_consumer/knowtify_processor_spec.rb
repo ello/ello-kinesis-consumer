@@ -18,6 +18,34 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, schema_name)
     end
 
+    describe 'when presented with a NewUserInviteSent event' do
+      let(:schema_name) { 'invitation_was_sent' }
+      let(:record) do
+        {
+          'email' => 'test@example.com',
+          'subscription_preferences' => {
+            'users_email_list' => true,
+            'invitation_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          }
+        }
+      end
+
+      it 'creates a record in Knowtify' do
+        expect_any_instance_of(Knowtify::Client).to receive(:upsert).with([{
+          email: 'test@example.com',
+          data: {
+            subscribed_to_users_email_list: true,
+            subscribed_to_invitation_drip: true,
+            subscribed_to_daily_ello: true,
+            subscribed_to_weekly_ello: true
+          }
+        }])
+        processor.run!
+      end
+    end
+
     describe 'when presented with a UserWasCreated event' do
       let(:schema_name) { 'user_was_created' }
       let(:record) do
