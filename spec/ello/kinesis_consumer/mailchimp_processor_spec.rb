@@ -43,7 +43,9 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'onboarding_drip' => false,
             'daily_ello' => true,
             'weekly_ello' => true
-          })
+          },
+          [],
+          false)
         processor.run!
       end
     end
@@ -74,7 +76,9 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => false
-          })
+          },
+          [],
+          true)
         processor.run!
       end
     end

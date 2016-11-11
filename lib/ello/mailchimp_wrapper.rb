@@ -18,7 +18,7 @@ class MailchimpWrapper
     end
   end
 
-  def upsert_to_users_list(email, preferences, categories = [])
+  def upsert_to_users_list(email, preferences, categories = [], has_account = true)
     return if skip_list.include?(email)
     hash = subscriber_hash(email)
     begin
@@ -26,6 +26,7 @@ class MailchimpWrapper
         body: {
           email_address: email,
           status_if_new: 'subscribed',
+          has_account: has_account,
           interests: prefs_to_interest_groups(preferences, categories.map(&:downcase))
         })
     rescue Gibbon::MailChimpError => e
