@@ -22,12 +22,15 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       let(:schema_name) { 'invitation_was_sent' }
       let(:record) do
         {
-          'email' => 'test@example.com',
-          'subscription_preferences' => {
-            'users_email_list' => true,
-            'invitation_drip' => true,
-            'daily_ello' => true,
-            'weekly_ello' => true
+          'invitation' => {
+            'email' => 'test@example.com',
+            'subscription_preferences' => {
+              'users_email_list' => true,
+              'daily_ello' => true,
+              'weekly_ello' => true,
+              'onboarding_drip' => false,
+              'invitation_drip' => true
+            }
           }
         }
       end

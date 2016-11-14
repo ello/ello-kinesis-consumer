@@ -6,8 +6,8 @@ module Ello
     class MailchimpProcessor < BaseProcessor
 
       def invitation_was_sent(record)
-        mailchimp.upsert_to_users_list record['email'],
-                                       record['subscription_preferences'],
+        mailchimp.upsert_to_users_list record['invitation']['email'],
+                                       record['invitation']['subscription_preferences'],
                                        [],
                                        false
       end
