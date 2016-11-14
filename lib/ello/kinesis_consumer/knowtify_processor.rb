@@ -12,7 +12,7 @@ module Ello
                                     subscribed_to_daily_ello: record['invitation']['subscription_preferences']['daily_ello'],
                                     subscribed_to_weekly_ello: record['invitation']['subscription_preferences']['weekly_ello'],
                                     subscribed_to_onboarding_drip: record['invitation']['subscription_preferences']['onboarding_drip'],
-                                    subscribed_to_invitation_drip: 'true'
+                                    subscribed_to_invitation_drip: true
                                   }
                                 }]
       end
@@ -27,7 +27,7 @@ module Ello
                                       subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
                                       subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
                                       subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
-                                      subscribed_to_invitation_drip: 'false',
+                                      subscribed_to_invitation_drip: false,
                                       followed_categories: record['followed_categories'],
                                       created_at: Time.at(record['created_at']).to_datetime
                                     }

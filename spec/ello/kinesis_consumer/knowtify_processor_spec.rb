@@ -18,7 +18,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, schema_name)
     end
 
-    describe 'when presented with a NewUserInviteSent event' do
+    describe 'when presented with a InvitationWasSent event' do
       let(:schema_name) { 'invitation_was_sent' }
       let(:record) do
         {
@@ -40,9 +40,10 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
           email: 'test@example.com',
           data: {
             subscribed_to_users_email_list: true,
-            subscribed_to_invitation_drip: true,
             subscribed_to_daily_ello: true,
-            subscribed_to_weekly_ello: true
+            subscribed_to_weekly_ello: true,
+            subscribed_to_onboarding_drip: false,
+            subscribed_to_invitation_drip: true
           }
         }])
         processor.run!
@@ -61,7 +62,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             'users_email_list' => true,
             'onboarding_drip' => true,
             'daily_ello' => true,
-            'weekly_ello' => true
+            'weekly_ello' => true,
+            'invitation_drip' => false
           }
         }
       end
@@ -77,7 +79,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             subscribed_to_users_email_list: true,
             subscribed_to_onboarding_drip: true,
             subscribed_to_daily_ello: true,
-            subscribed_to_weekly_ello: true
+            subscribed_to_weekly_ello: true,
+            subscribed_to_invitation_drip: false
           }
         }])
         processor.run!
