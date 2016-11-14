@@ -18,7 +18,7 @@ class MailchimpWrapper
     end
   end
 
-  def upsert_to_users_list(email, preferences, categories = [], has_account = true)
+  def upsert_to_users_list(email, preferences, categories = [], has_account = 'TRUE')
     return if skip_list.include?(email)
     hash = subscriber_hash(email)
     begin
