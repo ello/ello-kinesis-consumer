@@ -26,7 +26,7 @@ class MailchimpWrapper
         body: {
           email_address: email,
           status_if_new: 'subscribed',
-          has_account: has_account,
+          merge_fields: { ACCOUNT: has_account },
           interests: prefs_to_interest_groups(preferences, categories.map(&:downcase))
         })
     rescue Gibbon::MailChimpError => e
