@@ -13,7 +13,8 @@ module Ello
                                     subscribed_to_weekly_ello: record['invitation']['subscription_preferences']['weekly_ello'],
                                     subscribed_to_onboarding_drip: record['invitation']['subscription_preferences']['onboarding_drip'],
                                     subscribed_to_invitation_drip: true,
-                                    system_generated_invite: record['invitation']['is_system_generated']
+                                    system_generated_invite: record['invitation']['is_system_generated'],
+                                    has_account: false
                                   }
                                 }]
       end
@@ -30,7 +31,8 @@ module Ello
                                       subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
                                       subscribed_to_invitation_drip: false,
                                       followed_categories: record['followed_categories'],
-                                      created_at: Time.at(record['created_at']).to_datetime
+                                      created_at: Time.at(record['created_at']).to_datetime,
+                                      has_account: true
                                     }
                                   }]
         rescue TypeError

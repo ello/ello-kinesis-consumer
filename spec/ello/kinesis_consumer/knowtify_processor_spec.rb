@@ -45,7 +45,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             subscribed_to_weekly_ello: true,
             subscribed_to_onboarding_drip: false,
             subscribed_to_invitation_drip: true,
-            system_generated_invite: 'true'
+            system_generated_invite: 'true',
+            has_account: false
           }
         }])
         processor.run!
@@ -82,7 +83,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             subscribed_to_onboarding_drip: true,
             subscribed_to_daily_ello: true,
             subscribed_to_weekly_ello: true,
-            subscribed_to_invitation_drip: false
+            subscribed_to_invitation_drip: false,
+            has_account: true
           }
         }])
         processor.run!
