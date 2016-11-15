@@ -12,7 +12,8 @@ module Ello
                                     subscribed_to_daily_ello: record['invitation']['subscription_preferences']['daily_ello'],
                                     subscribed_to_weekly_ello: record['invitation']['subscription_preferences']['weekly_ello'],
                                     subscribed_to_onboarding_drip: record['invitation']['subscription_preferences']['onboarding_drip'],
-                                    subscribed_to_invitation_drip: true
+                                    subscribed_to_invitation_drip: true,
+                                    system_generated_invite: record['invitation']['is_system_generated']
                                   }
                                 }]
       end

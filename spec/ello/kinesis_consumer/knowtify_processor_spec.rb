@@ -24,6 +24,7 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         {
           'invitation' => {
             'email' => 'test@example.com',
+            'is_system_generated' => 'true',
             'subscription_preferences' => {
               'users_email_list' => true,
               'daily_ello' => true,
@@ -43,7 +44,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             subscribed_to_daily_ello: true,
             subscribed_to_weekly_ello: true,
             subscribed_to_onboarding_drip: false,
-            subscribed_to_invitation_drip: true
+            subscribed_to_invitation_drip: true,
+            system_generated_invite: 'true'
           }
         }])
         processor.run!
