@@ -25,6 +25,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
         {
           'invitation' => {
             'email' => 'jay@ello.co',
+            'is_system_generated' => 'true',
             'subscription_preferences' => {
               'users_email_list' => true,
               'invitation_drip' => true,
@@ -47,7 +48,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'weekly_ello' => true
           },
           [],
-          'FALSE')
+          { ACCOUNT: 'FALSE', SYSTEM: 'TRUE' })
         processor.run!
       end
     end
@@ -80,7 +81,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'weekly_ello' => false
           },
           [],
-          'TRUE')
+          { ACCOUNT: 'TRUE' })
         processor.run!
       end
     end

@@ -9,14 +9,14 @@ module Ello
         mailchimp.upsert_to_users_list record['invitation']['email'],
                                        record['invitation']['subscription_preferences'],
                                        [],
-                                       'FALSE'
+                                       { ACCOUNT: 'FALSE', SYSTEM: record['invitation']['is_system_generated'].to_s.upcase }
       end
 
       def user_was_created(record)
         mailchimp.upsert_to_users_list record['email'],
                                        record['subscription_preferences'],
                                        [],
-                                       'TRUE'
+                                       { ACCOUNT: 'TRUE' }
       end
 
       def user_changed_email(record)
