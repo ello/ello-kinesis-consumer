@@ -18,6 +18,41 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
       allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, schema_name)
     end
 
+    describe 'when presented with a InvitationWasSent event' do
+      let(:schema_name) { 'invitation_was_sent' }
+      let(:record) do
+        {
+          'invitation' => {
+            'email' => 'test@example.com',
+            'is_system_generated' => 'true',
+            'subscription_preferences' => {
+              'users_email_list' => true,
+              'daily_ello' => true,
+              'weekly_ello' => true,
+              'onboarding_drip' => false,
+              'invitation_drip' => true
+            }
+          }
+        }
+      end
+
+      it 'creates a record in Knowtify' do
+        expect_any_instance_of(Knowtify::Client).to receive(:upsert).with([{
+          email: 'test@example.com',
+          data: {
+            subscribed_to_users_email_list: true,
+            subscribed_to_daily_ello: true,
+            subscribed_to_weekly_ello: true,
+            subscribed_to_onboarding_drip: false,
+            subscribed_to_invitation_drip: true,
+            system_generated_invite: 'true',
+            has_account: false
+          }
+        }])
+        processor.run!
+      end
+    end
+
     describe 'when presented with a UserWasCreated event' do
       let(:schema_name) { 'user_was_created' }
       let(:record) do
@@ -30,7 +65,8 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             'users_email_list' => true,
             'onboarding_drip' => true,
             'daily_ello' => true,
-            'weekly_ello' => true
+            'weekly_ello' => true,
+            'invitation_drip' => false
           }
         }
       end
@@ -46,7 +82,9 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
             subscribed_to_users_email_list: true,
             subscribed_to_onboarding_drip: true,
             subscribed_to_daily_ello: true,
-            subscribed_to_weekly_ello: true
+            subscribed_to_weekly_ello: true,
+            subscribed_to_invitation_drip: false,
+            has_account: true
           }
         }])
         processor.run!

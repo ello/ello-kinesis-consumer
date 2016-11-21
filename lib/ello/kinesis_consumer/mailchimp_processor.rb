@@ -5,9 +5,18 @@ module Ello
   module KinesisConsumer
     class MailchimpProcessor < BaseProcessor
 
+      def invitation_was_sent(record)
+        mailchimp.upsert_to_users_list record['invitation']['email'],
+                                       record['invitation']['subscription_preferences'],
+                                       [],
+                                       { ACCOUNT: 'FALSE', SYSTEM: record['invitation']['is_system_generated'].to_s.upcase }
+      end
+
       def user_was_created(record)
         mailchimp.upsert_to_users_list record['email'],
-                                       record['subscription_preferences']
+                                       record['subscription_preferences'],
+                                       [],
+                                       { ACCOUNT: 'TRUE' }
       end
       add_transaction_tracer :user_was_created, category: :task
 
