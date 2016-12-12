@@ -27,7 +27,7 @@ class MailchimpWrapper
           email_address: email,
           status_if_new: 'subscribed',
           merge_fields: merge_fields,
-          interests: prefs_to_interest_groups(preferences, categories.map(&:downcase))
+          interests: interest_groups_from_prefs(preferences).merge(interest_groups_from_categories(categories))
         })
     rescue Gibbon::MailChimpError => e
       # Ideally this would be more specific, but they don't let us just check the e-mail field
@@ -49,54 +49,54 @@ class MailchimpWrapper
     Digest::MD5.hexdigest(email.downcase)
   end
 
-  def prefs_to_interest_groups(prefs, categories)
-    prefs_to_newsletter_interest_group(prefs).merge(prefs_to_categories_interest_group(categories))
-  end
-
-  def prefs_to_newsletter_interest_group(prefs)
+  def interest_groups_from_prefs(prefs)
     prefs.inject({}) do |interest_groups, (key, value)|
       mailchimp_name = EVENT_TO_MAILCHIMP_PREF_MAPPINGS[key]
-      if mailchimp_name
-        if mailchimp_group = users_list_interest_groups.find { |h| h[:name] == mailchimp_name }
-          interest_groups[mailchimp_group[:id]] = value
-        end
+      if mailchimp_name && mailchimp_group = users_list_newsletters_interest_group_interests.find { |h| h[:name] == mailchimp_name }
+        interest_groups[mailchimp_group[:id]] = value
       end
       interest_groups
     end
   end
 
-  def prefs_to_categories_interest_group(categories)
-    prefs = assemble_prefs_hash(categories)
+  def interest_groups_from_categories(categories)
+    prefs = assemble_prefs_hash(categories.map(&:downcase))
     map_category_names_to_ids(prefs)
   end
 
   def assemble_prefs_hash(categories)
-    prefs = users_list_categories_interest_group.keys.each_with_object({}) do |category, interest_groups|
+    prefs = users_list_categories_interest_group_interests.keys.each_with_object({}) do |category, interest_groups|
       interest_groups[category] = false
     end
     assign_category_prefs(categories, prefs)
   end
 
-  def users_list_interest_groups(category_name = 'Ello Newsletters')
-    @interest_groups ||= begin
-                      category_id = retrieve_category_id(category_name)
-                      users_list.interest_categories(category_id).interests.retrieve['interests'].map { |g| { name: g['name'], id: g['id'] } }
-                    end
-  end
-
-  def users_list_categories_interest_group
-    id = retrieve_category_id('Categories')
-    users_list.interest_categories(id).interests.retrieve['interests'].each_with_object({}) do |category, categories|
-      categories[category['name'].downcase] = category['id']
+  def users_list_newsletters_interest_group_interests
+    @@users_list_newsletters_interest_group_interests ||= begin
+      category_id = find_category_id_from_name('Ello Newsletters')
+      users_list.interest_categories(category_id).interests.retrieve['interests'].map { |g| { name: g['name'], id: g['id'] } }
     end
   end
 
-  def retrieve_category_id(category_name)
+  def users_list_categories_interest_group_interests
+    @@users_list_categories_interest_group_interests ||= fetch_users_list_categories_interest_group_interests!
+  end
+
+  def fetch_users_list_categories_interest_group_interests!
+    @@users_list_categories_interest_group_interests = begin
+      id = find_category_id_from_name('Categories')
+      users_list.interest_categories(id).interests.retrieve['interests'].each_with_object({}) do |category, categories|
+        categories[category['name'].downcase] = category['id']
+      end
+    end
+  end
+
+  def find_category_id_from_name(category_name)
     users_list.interest_categories.retrieve['categories'].detect { |c| c['title'] == category_name }['id']
   end
 
   def map_category_names_to_ids(prefs)
-    category_map = users_list_categories_interest_group
+    category_map = users_list_categories_interest_group_interests
     prefs.each_with_object({}) do |(category, value), interest_groups|
       category_id = category_map[category]
       interest_groups[category_id] = value
@@ -104,14 +104,17 @@ class MailchimpWrapper
   end
 
   def assign_category_prefs(categories, prefs)
-    categories.each do |category|
-      unless prefs.key?(category)
-        id = retrieve_category_id('Categories')
-        users_list.interest_categories(id).interests.create(body: { name: category.capitalize })
+    prefs.dup.tap do |p|
+      categories.each do |category|
+        unless p.key?(category)
+          id = find_category_id_from_name('Categories')
+          users_list.interest_categories(id).interests.create(body: { name: category.capitalize })
+          # Invalidate the memoized attribute so map_category_names_to_ids re-fetches the groups
+          fetch_users_list_categories_interest_group_interests!
+        end
+        p[category] = true
       end
-      prefs[category] = true
     end
-    prefs
   end
 
   def gibbon
