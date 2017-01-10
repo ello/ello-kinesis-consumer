@@ -12,6 +12,13 @@ module Ello
                                        { ACCOUNT: 'FALSE', SYSTEM: record['invitation']['is_system_generated'].to_s.upcase }
       end
 
+      def started_sign_up(record)
+        mailchimp.upsert_to_users_list record['email'],
+                                       record['subscription_preferences'],
+                                       [],
+                                       { ACCOUNT: 'FALSE', SYSTEM: 'TRUE' }
+      end
+
       def user_was_created(record)
         mailchimp.upsert_to_users_list record['email'],
                                        record['subscription_preferences'],
