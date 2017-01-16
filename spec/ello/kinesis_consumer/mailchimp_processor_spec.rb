@@ -264,6 +264,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
             COLLAB: nil,
             HIREABLE: nil,
+            VIEWS_NSFW: nil,
           }
         )
         processor.run!

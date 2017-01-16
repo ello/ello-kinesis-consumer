@@ -1,5 +1,6 @@
 require 'ello/kinesis_consumer/base_processor'
 require 'ello/mailchimp_wrapper'
+require 'active_support/core_ext/object/try'
 
 module Ello
   module KinesisConsumer
@@ -71,10 +72,10 @@ module Ello
         {
           USERNAME: user_record['username'],
           NAME: user_record['name'],
-          HAS_AVATAR: user_record['has_avatar'],
-          HAS_COVER: user_record['has_cover_image'],
-          HAS_BIO: user_record['has_bio'],
-          HAS_LINKS: user_record['has_links'],
+          HAS_AVATAR: user_record['has_avatar'].try(:to_s),
+          HAS_COVER: user_record['has_cover_image'].try(:to_s),
+          HAS_BIO: user_record['has_bio'].try(:to_s),
+          HAS_LINKS: user_record['has_links'].try(:to_s),
           LOCATION: user_record['location'],
 
           CREATED_AT: user_record['created_at'],
@@ -94,8 +95,9 @@ module Ello
           LOVES_RCVD: user_record['loves_received_count'],
           SALEABLE: user_record['saleable_posts_count'],
 
-          COLLAB: user_record['is_collaborateable'],
-          HIREABLE: user_record['is_hireable'],
+          COLLAB: user_record['is_collaborateable'].try(:to_s),
+          HIREABLE: user_record['is_hireable'].try(:to_s),
+          VIEWS_NSFW: user_record['views_adult_content'].try(:to_s),
         }.merge(overrides)
       end
     end
