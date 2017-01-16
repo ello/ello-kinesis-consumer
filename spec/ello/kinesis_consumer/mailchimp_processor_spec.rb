@@ -208,13 +208,13 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
     describe 'when presented with a UserTokenGranted event' do
       let(:schema_name) { 'user_token_granted' }
-      let(:now) { Time.now.to_f }
+      let(:created_at) { 1484598233.868098 }
       let(:record) do
         {
           'username' => 'testuser',
           'name' => 'jay',
           'email' => 'jay@ello.co',
-          'created_at' => now,
+          'created_at' => created_at,
           'has_experimental_features' => false,
           'followed_categories' => %w(Art Writing),
           'subscription_preferences' => {
@@ -245,7 +245,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_LINKS: nil,
             LOCATION: nil,
 
-            CREATED_AT: now,
+            CREATED_AT: "01/16/2017",
             UPDATED_AT: nil,
             LAST_SEEN: nil,
             LAST_POST: nil,

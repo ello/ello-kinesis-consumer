@@ -78,12 +78,12 @@ module Ello
           HAS_LINKS: user_record['has_links'].try(:to_s),
           LOCATION: user_record['location'],
 
-          CREATED_AT: user_record['created_at'],
-          UPDATED_AT: user_record['updated_at'],
-          LAST_SEEN: user_record['last_seen_at'],
-          LAST_POST: user_record['last_posted_at'],
-          LAST_CMMNT: user_record['last_commented_at'],
-          LAST_LOVE: user_record['last_loved_at'],
+          CREATED_AT: date(user_record['created_at']),
+          UPDATED_AT: date(user_record['updated_at']),
+          LAST_SEEN: date(user_record['last_seen_at']),
+          LAST_POST: date(user_record['last_posted_at']),
+          LAST_CMMNT: date(user_record['last_commented_at']),
+          LAST_LOVE: date(user_record['last_loved_at']),
 
           LOVES_GVN: user_record['loves_count'],
           POSTS: user_record['posts_count'],
@@ -99,6 +99,11 @@ module Ello
           HIREABLE: user_record['is_hireable'].try(:to_s),
           VIEWS_NSFW: user_record['views_adult_content'].try(:to_s),
         }.merge(overrides)
+      end
+
+      def date(float)
+        return nil if float.nil?
+        Time.at(float).strftime("%m/%d/%Y")
       end
     end
   end
