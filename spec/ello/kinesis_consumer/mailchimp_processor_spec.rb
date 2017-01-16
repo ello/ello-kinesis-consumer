@@ -205,5 +205,69 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
         processor.run!
       end
     end
+
+    describe 'when presented with a UserTokenGranted event' do
+      let(:schema_name) { 'user_token_granted' }
+      let(:now) { Time.now.to_f }
+      let(:record) do
+        {
+          'username' => 'testuser',
+          'name' => 'jay',
+          'email' => 'jay@ello.co',
+          'created_at' => now,
+          'has_experimental_features' => false,
+          'followed_categories' => %w(Art Writing),
+          'subscription_preferences' => {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          }
+        }
+      end
+
+      it 'updates a record in Mailchimp' do
+        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
+          'jay@ello.co',
+          {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          },
+          %w(Art Writing),
+          {
+            USERNAME: 'testuser',
+            NAME: 'jay',
+            HAS_AVATAR: nil,
+            HAS_COVER: nil,
+            HAS_BIO: nil,
+            HAS_LINKS: nil,
+            LOCATION: nil,
+
+            CREATED_AT: now,
+            UPDATED_AT: nil,
+            LAST_SEEN: nil,
+            LAST_POST: nil,
+            LAST_CMMNT: nil,
+            LAST_LOVE: nil,
+
+            LOVES_GVN: nil,
+            POSTS: nil,
+            FOLLOWERS: nil,
+            FOLLOWING: nil,
+            INVITES: nil,
+            COMMENTS: nil,
+            REPOSTS: nil,
+            LOVES_RCVD: nil,
+            SALEABLE: nil,
+
+            COLLAB: nil,
+            HIREABLE: nil,
+          }
+        )
+        processor.run!
+      end
+    end
   end
 end
