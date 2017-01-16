@@ -216,6 +216,8 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
           'email' => 'jay@ello.co',
           'created_at' => created_at,
           'has_experimental_features' => false,
+          'views_adult_content' => false,
+          'is_hireable' => true,
           'followed_categories' => %w(Art Writing),
           'subscription_preferences' => {
             'users_email_list' => true,
@@ -239,10 +241,10 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
           {
             USERNAME: 'testuser',
             NAME: 'jay',
-            HAS_AVATAR: nil,
-            HAS_COVER: nil,
-            HAS_BIO: nil,
-            HAS_LINKS: nil,
+            HAS_AVATAR: 'NIL',
+            HAS_COVER: 'NIL',
+            HAS_BIO: 'NIL',
+            HAS_LINKS: 'NIL',
             LOCATION: nil,
 
             CREATED_AT: "01/16/2017",
@@ -262,9 +264,9 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             LOVES_RCVD: nil,
             SALEABLE: nil,
 
-            COLLAB: nil,
-            HIREABLE: nil,
-            VIEWS_NSFW: nil,
+            COLLAB: 'NIL',
+            HIREABLE: 'TRUE',
+            VIEWS_NSFW: 'FALSE',
           }
         )
         processor.run!

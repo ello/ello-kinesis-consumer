@@ -72,10 +72,10 @@ module Ello
         {
           USERNAME: user_record['username'],
           NAME: user_record['name'],
-          HAS_AVATAR: user_record['has_avatar'].try(:to_s),
-          HAS_COVER: user_record['has_cover_image'].try(:to_s),
-          HAS_BIO: user_record['has_bio'].try(:to_s),
-          HAS_LINKS: user_record['has_links'].try(:to_s),
+          HAS_AVATAR: bool(user_record['has_avatar']),
+          HAS_COVER: bool(user_record['has_cover_image']),
+          HAS_BIO: bool(user_record['has_bio']),
+          HAS_LINKS: bool(user_record['has_links']),
           LOCATION: user_record['location'],
 
           CREATED_AT: date(user_record['created_at']),
@@ -95,15 +95,20 @@ module Ello
           LOVES_RCVD: user_record['loves_received_count'],
           SALEABLE: user_record['saleable_posts_count'],
 
-          COLLAB: user_record['is_collaborateable'].try(:to_s),
-          HIREABLE: user_record['is_hireable'].try(:to_s),
-          VIEWS_NSFW: user_record['views_adult_content'].try(:to_s),
+          COLLAB: bool(user_record['is_collaborateable']),
+          HIREABLE: bool(user_record['is_hireable']),
+          VIEWS_NSFW: bool(user_record['views_adult_content']),
         }.merge(overrides)
       end
 
       def date(float)
         return nil if float.nil?
         Time.at(float).strftime("%m/%d/%Y")
+      end
+
+      def bool(bool)
+        return 'NIL' if bool.nil?
+        bool ? 'TRUE' : 'FALSE'
       end
     end
   end
