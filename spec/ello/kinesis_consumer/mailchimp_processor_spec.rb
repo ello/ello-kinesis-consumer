@@ -39,16 +39,16 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
       it 'adds to the users list with the proper interest groups' do
         expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
-          {
+          email: 'jay@ello.co',
+          preferences: {
             'users_email_list' => true,
             'invitation_drip' => true,
             'onboarding_drip' => false,
             'daily_ello' => true,
             'weekly_ello' => true
           },
-          [],
-          { ACCOUNT: 'FALSE', SYSTEM: 'TRUE' })
+          merge_fields: { ACCOUNT: 'FALSE', SYSTEM: 'TRUE' },
+          force_resubscribe: false)
         processor.run!
       end
     end
@@ -70,16 +70,17 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
       it 'adds to the users list with the proper interest groups' do
         expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
-          {
+          email: 'jay@ello.co',
+          preferences: {
             'users_email_list' => true,
             'invitation_drip' => true,
             'onboarding_drip' => false,
             'daily_ello' => true,
             'weekly_ello' => true
           },
-          [],
-          { ACCOUNT: 'FALSE', SYSTEM: 'TRUE' })
+          categories: [],
+          merge_fields: { ACCOUNT: 'FALSE', SYSTEM: 'TRUE' },
+          force_resubscribe: true)
         processor.run!
       end
     end
@@ -104,15 +105,16 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
       it 'adds to the users list with the proper interest groups' do
         expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
-          {
+          email: 'jay@ello.co',
+          preferences: {
             'users_email_list' => true,
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => false
           },
-          [],
-          { ACCOUNT: 'TRUE' })
+          categories: [],
+          merge_fields: { ACCOUNT: 'TRUE' },
+          force_resubscribe: true)
         processor.run!
       end
     end
@@ -138,13 +140,14 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
       it 'updates the record in Mailchimp' do
         expect_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list).with('jay@ello.co')
         expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jz@ello.co',
-          {
+          email: 'jz@ello.co',
+          preferences: {
             'users_email_list' => true,
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => false
-          })
+          },
+          force_resubscribe: false)
         processor.run!
       end
     end
@@ -169,14 +172,15 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
       it 'updates a record in Mailchimp' do
         expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
-          {
+          email: 'jay@ello.co',
+          preferences: {
             'users_email_list' => true,
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => true
           },
-          %w(Art Writing))
+          categories: %w(Art Writing),
+          force_resubscribe: false)
         processor.run!
       end
     end

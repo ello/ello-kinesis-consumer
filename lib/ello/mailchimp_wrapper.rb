@@ -18,17 +18,16 @@ class MailchimpWrapper
     end
   end
 
-  def upsert_to_users_list(email, preferences, categories = [], merge_fields = {})
+  def upsert_to_users_list(email:, preferences:, categories: [], merge_fields: {}, force_resubscribe: false)
     return if skip_list.include?(email)
     hash = subscriber_hash(email)
+    body = {
+      email_address: email,
+      merge_fields: merge_fields,
+      interests: interest_groups_from_prefs(preferences).merge(interest_groups_from_categories(categories))
+    }.merge((force_resubscribe ? :status : :status_if_new) => 'subscribed')
     begin
-      users_list.members(hash).upsert(
-        body: {
-          email_address: email,
-          status_if_new: 'subscribed',
-          merge_fields: merge_fields,
-          interests: interest_groups_from_prefs(preferences).merge(interest_groups_from_categories(categories))
-        })
+      users_list.members(hash).upsert(body: body)
     rescue Gibbon::MailChimpError => e
       # Ideally this would be more specific, but they don't let us just check the e-mail field
       raise e unless e.status_code == 400
