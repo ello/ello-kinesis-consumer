@@ -84,7 +84,7 @@ class MailchimpWrapper
   def fetch_users_list_categories_interest_group_interests!
     @@users_list_categories_interest_group_interests = begin
       id = find_category_id_from_name('Categories')
-      users_list.interest_categories(id).interests.retrieve['interests'].each_with_object({}) do |category, categories|
+      users_list.interest_categories(id).interests.retrieve(params: { count: 1000 })['interests'].each_with_object({}) do |category, categories|
         categories[category['name'].downcase] = category['id']
       end
     end
