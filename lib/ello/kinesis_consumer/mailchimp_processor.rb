@@ -55,10 +55,11 @@ module Ello
       add_transaction_tracer :user_was_deleted, category: :task
 
       def user_token_granted(record)
-        mailchimp.upsert_to_users_list record['email'],
-                                       record['subscription_preferences'],
-                                       record['followed_categories'] || [],
-                                       merge_fields_for_user(record)
+        mailchimp.upsert_to_users_list email: record['email'],
+                                       preferences: record['subscription_preferences'],
+                                       categories: record['followed_categories'] || [],
+                                       merge_fields: merge_fields_for_user(record, {ACCOUNT: 'TRUE'}),
+                                       force_resubscribe: false
       end
       add_transaction_tracer :user_token_granted, category: :task
 
@@ -93,6 +94,7 @@ module Ello
           COMMENTS: user_record['comments_count'],
           REPOSTS: user_record['reposts_count'],
           LOVES_RCVD: user_record['loves_received_count'],
+          CMMNT_RCVD: user_record['comments_received_count'],
           SALEABLE: user_record['saleable_posts_count'],
 
           COLLAB: bool(user_record['is_collaborateable']),

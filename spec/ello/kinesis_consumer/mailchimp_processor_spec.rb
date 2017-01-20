@@ -229,16 +229,17 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
       end
 
       it 'updates a record in Mailchimp' do
-        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
-          'jay@ello.co',
-          {
+        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with({
+          email: 'jay@ello.co',
+          force_resubscribe: false,
+          preferences: {
             'users_email_list' => true,
             'onboarding_drip' => true,
             'daily_ello' => true,
             'weekly_ello' => true
           },
-          %w(Art Writing),
-          {
+          categories: %w(Art Writing),
+          merge_fields: {
             USERNAME: 'testuser',
             NAME: 'jay',
             HAS_AVATAR: 'NIL',
@@ -262,13 +263,16 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             COMMENTS: nil,
             REPOSTS: nil,
             LOVES_RCVD: nil,
+            CMMNT_RCVD: nil,
             SALEABLE: nil,
 
             COLLAB: 'NIL',
             HIREABLE: 'TRUE',
             VIEWS_NSFW: 'FALSE',
+
+            ACCOUNT: 'TRUE',
           }
-        )
+        })
         processor.run!
       end
     end
