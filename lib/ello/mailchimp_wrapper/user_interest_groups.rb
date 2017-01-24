@@ -16,7 +16,8 @@ class UserInterestGroups
 
   def as_json
     followed_category_interest_groups.
-      merge(preference_interest_groups)
+      merge(preference_interest_groups).
+      merge(featured_category_interest_groups)
   end
 
   def followed_category_interest_groups

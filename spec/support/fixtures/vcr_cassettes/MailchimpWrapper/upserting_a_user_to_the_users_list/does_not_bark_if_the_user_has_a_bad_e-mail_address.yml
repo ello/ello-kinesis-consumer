@@ -27,13 +27,13 @@ http_interactions:
       Content-Length:
       - '165'
       X-Request-Id:
-      - 65d9ade0-8a3b-4b6b-8aec-e50ebd655758
+      - a84604eb-1952-4f53-8dde-52b4ac6f5b21
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/ProblemDetailDocument.json>; rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Tue, 24 Jan 2017 19:40:54 GMT
+      - Tue, 24 Jan 2017 20:33:19 GMT
       Connection:
       - close
       Set-Cookie:
@@ -43,5 +43,5 @@ http_interactions:
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Invalid
         Resource","status":400,"detail":"An email address must contain a single @","instance":""}'
     http_version: 
-  recorded_at: Tue, 24 Jan 2017 19:40:54 GMT
+  recorded_at: Tue, 24 Jan 2017 20:33:19 GMT
 recorded_with: VCR 3.0.1
