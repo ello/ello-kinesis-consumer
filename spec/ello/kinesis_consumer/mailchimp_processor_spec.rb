@@ -219,6 +219,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
           'views_adult_content' => false,
           'is_hireable' => true,
           'followed_categories' => %w(Art Writing),
+          'featured_categories' => %w(Art),
           'subscription_preferences' => {
             'users_email_list' => true,
             'onboarding_drip' => true,
@@ -239,6 +240,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'weekly_ello' => true
           },
           categories: %w(Art Writing),
+          featured_categories: %w(Art),
           merge_fields: {
             USERNAME: 'testuser',
             NAME: 'jay',

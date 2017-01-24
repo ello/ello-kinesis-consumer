@@ -16,19 +16,15 @@ describe MailchimpWrapper, vcr: true do
       result = wrapper.upsert_to_users_list(email: 'ops@ello.co',
                                             preferences: prefs_hash,
                                             categories: %w(Art Music))
-      expect(result['interests']).to eq('250fa0013d' => true, # News & Features
-                                        'a0acf584c8' => false,
-                                        '2d020275c1' => false,
-                                        'aa9b79a0d6' => true, # Art
-                                        'ff448f9482' => true, # Music
-                                        '0ce5cecfc5' => false,
-                                        '39680bed71' => false,
-                                        'cd722f085a' => false,
-                                        '86a27049f8' => false,
-                                        '96864657d5' => false,
-                                        '10438d9c7c' => false,
-                                        '2a710bc6c4' => false,
-                                        '2965f02ec5' => false)
+      expect(result['interests']).to eq(
+        '0308311d84' => true,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '9b760265af' => false,
+        'b869e0cb2c' => false,
+        'c2284b54c2' => true,
+        'e2bace944e' => true,
+      )
     end
 
     it 'when a category does not exist and needs to be created' do
@@ -36,37 +32,31 @@ describe MailchimpWrapper, vcr: true do
       result = wrapper.upsert_to_users_list(email: 'ops@ello.co',
                                             preferences: prefs_hash,
                                             categories: %w(Art Music Writing))
-      expect(result['interests']).to eq('250fa0013d' => true, # News & Features
-                                        'a0acf584c8' => false,
-                                        '2d020275c1' => false,
-                                        'aa9b79a0d6' => true, # Art
-                                        'ff448f9482' => true, # Music
-                                        '0ce5cecfc5' => false,
-                                        '39680bed71' => true, # Writing
-                                        'cd722f085a' => false,
-                                        '86a27049f8' => false,
-                                        '96864657d5' => false,
-                                        '10438d9c7c' => false,
-                                        '2a710bc6c4' => false,
-                                        '2965f02ec5' => false)
+      expect(result['interests']).to eq(
+        '0308311d84' => true,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '9b760265af' => false,
+        'b7b85d0797' => true,
+        'b869e0cb2c' => false,
+        'c2284b54c2' => true,
+        'e2bace944e' => true,
+      )
     end
 
     it 'when there are no categories' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
       result = wrapper.upsert_to_users_list(email: 'ops@ello.co', preferences: prefs_hash)
-      expect(result['interests']).to eq('250fa0013d' => true, # News & Features
-                                        'a0acf584c8' => false,
-                                        '2d020275c1' => false,
-                                        'aa9b79a0d6' => false, # Art
-                                        'ff448f9482' => false, # Music
-                                        '0ce5cecfc5' => false,
-                                        '39680bed71' => false, # Writing
-                                        'cd722f085a' => false,
-                                        '86a27049f8' => false,
-                                        '96864657d5' => false,
-                                        '10438d9c7c' => false,
-                                        '2a710bc6c4' => false,
-                                        '2965f02ec5' => false)
+      expect(result['interests']).to eq(
+        '0308311d84' => true,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '9b760265af' => false,
+        'b7b85d0797' => true,
+        'b869e0cb2c' => false,
+        'c2284b54c2' => true,
+        'e2bace944e' => true,
+      )
     end
 
     it 'does not bark if the user has a bad e-mail address' do
