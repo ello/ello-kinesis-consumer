@@ -259,13 +259,13 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
 
             LOVES_GVN: nil,
             POSTS: nil,
-            FOLLOWERS: nil,
+            # FOLLOWERS: nil,
             FOLLOWING: nil,
             INVITES: nil,
             COMMENTS: nil,
             REPOSTS: nil,
-            LOVES_RCVD: nil,
-            CMMNT_RCVD: nil,
+            # LOVES_RCVD: nil,
+            # CMMNT_RCVD: nil,
             SALEABLE: nil,
 
             COLLAB: 'NIL',

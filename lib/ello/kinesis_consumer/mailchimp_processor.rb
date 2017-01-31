@@ -90,13 +90,13 @@ module Ello
 
           LOVES_GVN: user_record['loves_count'],
           POSTS: user_record['posts_count'],
-          FOLLOWERS: user_record['followers_count'],
+          # FOLLOWERS: user_record['followers_count'],
           FOLLOWING: user_record['following_count'],
           INVITES: user_record['invitations_count'],
           COMMENTS: user_record['comments_count'],
           REPOSTS: user_record['reposts_count'],
-          LOVES_RCVD: user_record['loves_received_count'],
-          CMMNT_RCVD: user_record['comments_received_count'],
+          # LOVES_RCVD: user_record['loves_received_count'],
+          # CMMNT_RCVD: user_record['comments_received_count'],
           SALEABLE: user_record['saleable_posts_count'],
 
           COLLAB: bool(user_record['is_collaborateable']),
