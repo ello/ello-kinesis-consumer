@@ -5,7 +5,7 @@ http_interactions:
     uri: https://apikey:<MAILCHIMP_API_KEY>@us3.api.mailchimp.com/3.0/lists/<MAILCHIMP_USERS_LIST_ID>/members/b19b5b326fb202232b1c1776e79cf301
     body:
       encoding: UTF-8
-      string: '{"email_address":"ops123","merge_fields":{},"interests":{"aa9b79a0d6":false,"ff448f9482":false,"0ce5cecfc5":false,"39680bed71":false,"cd722f085a":false,"86a27049f8":false,"96864657d5":false,"10438d9c7c":false,"2a710bc6c4":false,"2965f02ec5":false},"status_if_new":"subscribed"}'
+      string: '{"email_address":"ops123","merge_fields":{},"interests":{},"status_if_new":"subscribed"}'
     headers:
       User-Agent:
       - Faraday v0.9.2
@@ -27,13 +27,13 @@ http_interactions:
       Content-Length:
       - '165'
       X-Request-Id:
-      - f2e0c666-eb2d-46aa-899e-c4b8f42546fd
+      - a84604eb-1952-4f53-8dde-52b4ac6f5b21
       Link:
       - <https://us3.api.mailchimp.com/schema/3.0/ProblemDetailDocument.json>; rel="describedBy"
       Vary:
       - Accept-Encoding
       Date:
-      - Thu, 19 Jan 2017 22:06:16 GMT
+      - Tue, 24 Jan 2017 20:33:19 GMT
       Connection:
       - close
       Set-Cookie:
@@ -43,5 +43,5 @@ http_interactions:
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Invalid
         Resource","status":400,"detail":"An email address must contain a single @","instance":""}'
     http_version: 
-  recorded_at: Thu, 19 Jan 2017 22:06:16 GMT
+  recorded_at: Tue, 24 Jan 2017 20:33:19 GMT
 recorded_with: VCR 3.0.1

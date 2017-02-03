@@ -13,60 +13,76 @@ describe MailchimpWrapper, vcr: true do
 
     it 'sets/maps interest groups properly' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
-      result = wrapper.upsert_to_users_list(email: 'ops@ello.co',
+      result = wrapper.upsert_to_users_list(email: 'test1@ello.co',
                                             preferences: prefs_hash,
                                             categories: %w(Art Music))
-      expect(result['interests']).to eq('250fa0013d' => true, # News & Features
-                                        'a0acf584c8' => false,
-                                        '2d020275c1' => false,
-                                        'aa9b79a0d6' => true, # Art
-                                        'ff448f9482' => true, # Music
-                                        '0ce5cecfc5' => false,
-                                        '39680bed71' => false,
-                                        'cd722f085a' => false,
-                                        '86a27049f8' => false,
-                                        '96864657d5' => false,
-                                        '10438d9c7c' => false,
-                                        '2a710bc6c4' => false,
-                                        '2965f02ec5' => false)
+      expect(result['interests']).to eq(
+        '3971ca7cd1' => true,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '56f6062c3e' => true,
+        '9b760265af' => false,
+        'b869e0cb2c' => false,
+        'e2bace944e' => true,
+        'e5a27b7af3' => false,
+      )
     end
 
     it 'when a category does not exist and needs to be created' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
-      result = wrapper.upsert_to_users_list(email: 'ops@ello.co',
+      result = wrapper.upsert_to_users_list(email: 'test2@ello.co',
                                             preferences: prefs_hash,
                                             categories: %w(Art Music Writing))
-      expect(result['interests']).to eq('250fa0013d' => true, # News & Features
-                                        'a0acf584c8' => false,
-                                        '2d020275c1' => false,
-                                        'aa9b79a0d6' => true, # Art
-                                        'ff448f9482' => true, # Music
-                                        '0ce5cecfc5' => false,
-                                        '39680bed71' => true, # Writing
-                                        'cd722f085a' => false,
-                                        '86a27049f8' => false,
-                                        '96864657d5' => false,
-                                        '10438d9c7c' => false,
-                                        '2a710bc6c4' => false,
-                                        '2965f02ec5' => false)
+      expect(result['interests']).to eq(
+        '3971ca7cd1' => true,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '56f6062c3e' => true,
+        '9b760265af' => false,
+        'b869e0cb2c' => false,
+        'c56071d0c9' => true,
+        'e2bace944e' => true,
+        'e5a27b7af3' => false,
+      )
     end
 
     it 'when there are no categories' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
-      result = wrapper.upsert_to_users_list(email: 'ops@ello.co', preferences: prefs_hash)
-      expect(result['interests']).to eq('250fa0013d' => true, # News & Features
-                                        'a0acf584c8' => false,
-                                        '2d020275c1' => false,
-                                        'aa9b79a0d6' => false, # Art
-                                        'ff448f9482' => false, # Music
-                                        '0ce5cecfc5' => false,
-                                        '39680bed71' => false, # Writing
-                                        'cd722f085a' => false,
-                                        '86a27049f8' => false,
-                                        '96864657d5' => false,
-                                        '10438d9c7c' => false,
-                                        '2a710bc6c4' => false,
-                                        '2965f02ec5' => false)
+      result = wrapper.upsert_to_users_list(email: 'test3@ello.co', preferences: prefs_hash)
+      expect(result['interests']).to eq(
+        '3971ca7cd1' => false,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '56f6062c3e' => false,
+        '9b760265af' => false,
+        'b869e0cb2c' => false,
+        'c56071d0c9' => false,
+        'e2bace944e' => true,
+        'e5a27b7af3' => false,
+      )
+    end
+
+    it 'when there are featured categories' do
+      prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
+      result = wrapper.upsert_to_users_list(email: 'test4@ello.co',
+                                            preferences: prefs_hash,
+                                            categories: %w(Art Music Writing),
+                                            featured_categories: %w(Art Music),
+                                           )
+      expect(result['interests']).to eq(
+        '3971ca7cd1' => true,
+        '44b7abae7f' => false,
+        '47ef4a7cef' => false,
+        '56f6062c3e' => true,
+        '9b760265af' => false,
+        'a17ebc2cd1' => true,
+        'b869e0cb2c' => false,
+        'c56071d0c9' => true,
+        'e2bace944e' => true,
+        'e5a27b7af3' => false,
+        'f6c1768b6f' => true,
+      )
+
     end
 
     it 'does not bark if the user has a bad e-mail address' do
