@@ -5,7 +5,8 @@ class UserInterestGroups
   EVENT_TO_MAILCHIMP_PREF_MAPPINGS = {
     'users_email_list' => 'Ello News & Features',
     'daily_ello' => 'Best of Ello Daily Updates',
-    'weekly_ello' => 'Best of Ello Weekly Updates'
+    'weekly_ello' => 'Best of Ello Weekly Updates',
+    'onboarding_drip' => 'Tips for Getting Started',
   }
 
   def initialize(preferences:, categories:, featured_categories:)
