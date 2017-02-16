@@ -19,11 +19,7 @@ class MailchimpWrapper
     body = {
       email_address: email,
       merge_fields: merge_fields,
-      interests: UserInterestGroups.new(
-        preferences: preferences,
-        categories: categories,
-        featured_categories: featured_categories,
-      ).as_json
+      interests: UserInterestGroups.new(preferences: preferences).as_json
     }.merge((force_resubscribe ? :status : :status_if_new) => 'subscribed')
     begin
       users_list.members(hash).upsert(body: body)

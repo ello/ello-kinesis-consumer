@@ -1,12 +1,12 @@
 class InterestGroup
   class << self
-    def find_or_create_interest_group_id(category_name, interest_group_name)
+    def find_interest_group_id(category_name, interest_group_name)
       interest_group_name = interest_group_name.downcase
       interest_groups = find_or_fetch_category(category_name)
       if interest_groups.has_key?(interest_group_name)
         interest_groups[interest_group_name]
       else
-        create_interest_group(category_name, interest_group_name)
+        raise "Interest Group '#{interest_group_name}' must be created in mailchimp"
       end
     end
 
@@ -48,16 +48,6 @@ class InterestGroup
       mailchimp_categories.each_with_object({}) do |mc_category, mc_categories|
         mc_categories[mc_category['name'].downcase] = mc_category['id']
       end
-    end
-
-    def create_interest_group(category_name, interest_group_name)
-      id = find_category_id_from_name(category_name)
-      ig_id = users_list.
-        interest_categories(id).
-        interests.
-        create(body: { name: interest_group_name.capitalize })['id']
-      @categories[category_name][interest_group_name] = ig_id
-      ig_id
     end
   end
 end

@@ -80,6 +80,7 @@ module Ello
           HAS_BIO: bool(user_record['has_bio']),
           HAS_LINKS: bool(user_record['has_links']),
           LOCATION: user_record['location'],
+          ISFEATURED: bool(user_record['is_featured']),
 
           CREATED_AT: date(user_record['created_at']),
           UPDATED_AT: date(user_record['updated_at']),
