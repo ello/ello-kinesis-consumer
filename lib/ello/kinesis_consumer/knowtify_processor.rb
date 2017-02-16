@@ -50,7 +50,7 @@ module Ello
                                     }
                                   }]
         rescue TypeError
-          @logger.info "Unable to parse date: #{record['created_at']}"
+          @logger.error "Unable to parse date: #{record['created_at']}"
         end
       end
       add_transaction_tracer :user_was_created, category: :task
@@ -71,7 +71,7 @@ module Ello
                                     }
                                   }]
         rescue TypeError
-          @logger.info "Unable to parse date: #{record['created_at']}"
+          @logger.error "Unable to parse date: #{record['created_at']}"
         end
       end
       add_transaction_tracer :user_changed_email, category: :task
@@ -90,7 +90,7 @@ module Ello
                                     }
                                   }]
         rescue TypeError
-          @logger.info "Unable to parse date: #{record['created_at']}"
+          @logger.error "Unable to parse date: #{record['created_at']}"
         end
       end
       add_transaction_tracer :user_changed_subscription_preferences, category: :task
