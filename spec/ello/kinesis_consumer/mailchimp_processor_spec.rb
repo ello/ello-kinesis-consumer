@@ -218,6 +218,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
           'has_experimental_features' => false,
           'views_adult_content' => false,
           'is_hireable' => true,
+          'is_featured' => true,
           'followed_categories' => %w(Art Writing),
           'featured_categories' => %w(Art),
           'subscription_preferences' => {
@@ -249,6 +250,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_BIO: 'NIL',
             HAS_LINKS: 'NIL',
             LOCATION: nil,
+            ISFEATURED: 'TRUE',
 
             CREATED_AT: "01/16/2017",
             UPDATED_AT: nil,
