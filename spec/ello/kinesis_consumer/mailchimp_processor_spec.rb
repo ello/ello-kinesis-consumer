@@ -280,5 +280,53 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
         processor.run!
       end
     end
+
+    describe 'when presented with a UserWasLocked event' do
+      let(:schema_name) { 'user_was_locked' }
+      let(:record) do
+        {
+          'email' => 'jay@ello.co',
+          'locked_at' => Time.now.to_f,
+          'locked_reason' => 'spam'
+        }
+      end
+
+      it 'removes the email from the users list in Mailchimp' do
+        expect_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list).with('jay@ello.co')
+        processor.run!
+      end
+    end
+
+    describe 'when presented with a UserWasUnlocked event' do
+      let(:schema_name) { 'user_was_unlocked' }
+      let(:record) do
+        {
+          'email' => 'jz@ello.co',
+          'previous_email' => 'jay@ello.co',
+          'username' => 'jayzes',
+          'created_at' => Time.now.to_f,
+          'has_experimental_features' => true,
+          'subscription_preferences' => {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => false
+          }
+        }
+      end
+
+      it 'creates the record in Mailchimp' do
+        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with(
+          email: 'jz@ello.co',
+          preferences: {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => false
+          },
+          force_resubscribe: false)
+        processor.run!
+      end
+    end
   end
 end
