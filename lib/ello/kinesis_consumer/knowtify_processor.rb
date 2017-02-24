@@ -100,6 +100,28 @@ module Ello
       end
       add_transaction_tracer :user_was_deleted, category: :task
 
+      def user_was_locked(record)
+        knowtify_client.delete [ record['email'] ]
+      end
+
+      def user_was_unlocked(record)
+        begin
+          knowtify_client.upsert [{ email: record['email'],
+                                    name: record['username'],
+                                    data: {
+                                      username: record['username'],
+                                      subscribed_to_users_email_list: record['subscription_preferences']['users_email_list'],
+                                      subscribed_to_daily_ello: record['subscription_preferences']['daily_ello'],
+                                      subscribed_to_weekly_ello: record['subscription_preferences']['weekly_ello'],
+                                      subscribed_to_onboarding_drip: record['subscription_preferences']['onboarding_drip'],
+                                      created_at: Time.at(record['created_at']).to_datetime
+                                    }
+          }]
+        rescue TypeError
+          @logger.error "Unable to parse date: #{record['created_at']}"
+        end
+      end
+
       private
 
       def knowtify_client
