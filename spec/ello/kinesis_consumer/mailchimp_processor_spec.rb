@@ -113,7 +113,10 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'weekly_ello' => false
           },
           categories: [],
-          merge_fields: { ACCOUNT: 'TRUE' },
+          merge_fields: a_hash_including({
+            ACCOUNT: 'TRUE',
+            USERNAME: 'jayzes',
+          }),
           force_resubscribe: true)
         processor.run!
       end
@@ -147,6 +150,10 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'daily_ello' => true,
             'weekly_ello' => false
           },
+          merge_fields: a_hash_including({
+            ACCOUNT: 'TRUE',
+            USERNAME: 'jayzes',
+          }),
           force_resubscribe: false)
         processor.run!
       end
@@ -179,6 +186,10 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             'daily_ello' => true,
             'weekly_ello' => true
           },
+          merge_fields: a_hash_including({
+            ACCOUNT: 'TRUE',
+            USERNAME: 'testuser',
+          }),
           categories: %w(Art Writing),
           force_resubscribe: false)
         processor.run!

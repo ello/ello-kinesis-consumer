@@ -28,7 +28,7 @@ module Ello
         mailchimp.upsert_to_users_list email: record['email'],
                                        preferences: record['subscription_preferences'],
                                        categories: [],
-                                       merge_fields: { ACCOUNT: 'TRUE' },
+                                       merge_fields: merge_fields_for_user(record, {ACCOUNT: 'TRUE'}),
                                        force_resubscribe: true
       end
       add_transaction_tracer :user_was_created, category: :task
@@ -37,6 +37,7 @@ module Ello
         mailchimp.remove_from_users_list record['previous_email']
         mailchimp.upsert_to_users_list email: record['email'],
                                        preferences: record['subscription_preferences'],
+                                       merge_fields: merge_fields_for_user(record, {ACCOUNT: 'TRUE'}),
                                        force_resubscribe: false
       end
       add_transaction_tracer :user_changed_email, category: :task
@@ -45,6 +46,7 @@ module Ello
         mailchimp.upsert_to_users_list email: record['email'],
                                        preferences: record['subscription_preferences'],
                                        categories: (record['followed_categories'] || []),
+                                       merge_fields: merge_fields_for_user(record, {ACCOUNT: 'TRUE'}),
                                        force_resubscribe: false
       end
       add_transaction_tracer :user_changed_subscription_preferences, category: :task
