@@ -211,6 +211,56 @@ describe Ello::KinesisConsumer::KnowtifyProcessor, freeze_time: true do
         processor.run!
       end
     end
+
+    describe 'when presented with a UserWasLocked event' do
+      let(:schema_name) { 'user_was_locked' }
+      let(:record) do
+        {
+          'email' => 'test@example.com',
+          'locked_at' => Time.now.to_f,
+          'locked_reason' => 'spam'
+        }
+      end
+
+      it 'removes a record in Knowtify' do
+        expect_any_instance_of(Knowtify::Client).to receive(:delete).with([ 'test@example.com' ])
+        processor.run!
+      end
+    end
+
+    describe 'when presented with a UserWasUnlocked event' do
+      let(:schema_name) { 'user_was_unlocked' }
+      let(:record) do
+        {
+          'username' => 'testuser',
+          'email' => 'test2@example.com',
+          'previous_email' => 'test@example.com',
+          'created_at' => Time.now.to_f,
+          'subscription_preferences' => {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          }
+        }
+      end
+
+      it 'adds a record in Knowtify' do
+        expect_any_instance_of(Knowtify::Client).to receive(:upsert).with([{
+          email: 'test2@example.com',
+          name: 'testuser',
+          data: {
+            username: 'testuser',
+            created_at: Time.now.to_datetime,
+            subscribed_to_users_email_list: true,
+            subscribed_to_onboarding_drip: true,
+            subscribed_to_daily_ello: true,
+            subscribed_to_weekly_ello: true
+          }
+        }])
+        processor.run!
+      end
+    end
   end
 
 end
