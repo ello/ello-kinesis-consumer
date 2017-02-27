@@ -103,6 +103,7 @@ module Ello
       def user_was_locked(record)
         knowtify_client.delete [ record['email'] ]
       end
+      add_transaction_tracer :user_was_locked, category: :task
 
       def user_was_unlocked(record)
         begin
@@ -121,6 +122,7 @@ module Ello
           @logger.error "Unable to parse date: #{record['created_at']}"
         end
       end
+      add_transaction_tracer :user_was_unlocked, category: :task
 
       private
 

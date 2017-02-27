@@ -68,12 +68,18 @@ module Ello
       def user_was_locked(record)
         mailchimp.remove_from_users_list record['email']
       end
+      add_transaction_tracer :user_was_locked, category: :task
 
       def user_was_unlocked(record)
         mailchimp.upsert_to_users_list email: record['email'],
                                        preferences: record['subscription_preferences'],
+                                       categories: record['followed_categories'] || [],
+                                       featured_categories: record['featured_categories'] || [],
+
+                                       merge_fields: merge_fields_for_user(record, {ACCOUNT: 'TRUE'}),
                                        force_resubscribe: false
       end
+      add_transaction_tracer :user_was_unlocked, category: :task
 
       private
 
