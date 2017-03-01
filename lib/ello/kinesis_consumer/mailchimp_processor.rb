@@ -79,7 +79,7 @@ module Ello
                                        featured_categories: record['featured_categories'] || [],
 
                                        merge_fields: merge_fields_for_user(record, {ACCOUNT: 'TRUE'}),
-                                       force_resubscribe: false
+                                       force_resubscribe: true
       end
       add_transaction_tracer :user_was_unlocked, category: :task
 
