@@ -337,7 +337,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
       it 'creates the record in Mailchimp' do
         expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with({
           email: 'jay@ello.co',
-          force_resubscribe: false,
+          force_resubscribe: true,
           preferences: {
             'users_email_list' => true,
             'onboarding_drip' => true,
