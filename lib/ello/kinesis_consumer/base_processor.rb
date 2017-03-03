@@ -1,4 +1,3 @@
-require 'knowtify/client'
 require 'newrelic_rpm'
 
 module Ello
