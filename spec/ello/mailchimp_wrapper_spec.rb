@@ -23,13 +23,12 @@ describe MailchimpWrapper, vcr: true do
     it 'sets/maps interest groups properly' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
       result = wrapper.upsert_to_users_list(email: 'test1@ello.co',
-                                            preferences: prefs_hash,
-                                            categories: %w(Art Music))
+                                            preferences: prefs_hash)
       expect(result['interests']).to eq(
-        '44b7abae7f' => false,
-        '47ef4a7cef' => false,
-        'b869e0cb2c' => false,
-        'e2bace944e' => true,
+        '250fa0013d' => true,
+        'a0acf584c8' => false,
+        '2d020275c1' => false,
+        '2762585b56' => false,
       )
     end
 
