@@ -20,7 +20,7 @@ class MailchimpWrapper
       email_address: email,
       merge_fields: merge_fields,
       interests: UserInterestGroups.new(preferences: preferences).as_json
-    }.merge((force_resubscribe ? :status : :status_if_new) => determine_subscription_status(email))
+    }.merge((force_resubscribe ? :status : :status_if_new) => determine_subscription_status(email, force_resubscribe))
     begin
       users_list.members(hash).upsert(body: body)
     rescue Gibbon::MailChimpError => e
@@ -43,9 +43,13 @@ class MailchimpWrapper
     Digest::MD5.hexdigest(email.downcase)
   end
 
-  def determine_subscription_status(email)
-    status = existing_subscriber_status(email)
-    status == 'unsubscribed' ? 'pending' : 'subscribed'
+  def determine_subscription_status(email, force_resubscribe)
+    if force_resubscribe
+      status = existing_subscriber_status(email)
+      status == 'unsubscribed' ? 'pending' : 'subscribed'
+    else
+      'subscribed'
+    end
   end
 
   def existing_subscriber_status(email)
