@@ -11,16 +11,24 @@ describe MailchimpWrapper, vcr: true do
       expect(result['list_id']).to eq(ENV['MAILCHIMP_USERS_LIST_ID'])
     end
 
+    it 'sets an already unsubscribed user to pending status' do
+      wrapper.remove_from_users_list('unsubscribed.user@ello.co')
+      result = wrapper.upsert_to_users_list(email: 'unsubscribed.user@ello.co', preferences: {}, force_resubscribe: true)
+
+      expect(result['email_address']).to eq('unsubscribed.user@ello.co')
+      expect(result['status']).to eq('pending')
+      expect(result['list_id']).to eq(ENV['MAILCHIMP_USERS_LIST_ID'])
+    end
+
     it 'sets/maps interest groups properly' do
       prefs_hash = { 'users_email_list' => true, 'daily_ello' => false, 'weekly_ello' => false }
       result = wrapper.upsert_to_users_list(email: 'test1@ello.co',
-                                            preferences: prefs_hash,
-                                            categories: %w(Art Music))
+                                            preferences: prefs_hash)
       expect(result['interests']).to eq(
-        '44b7abae7f' => false,
-        '47ef4a7cef' => false,
-        'b869e0cb2c' => false,
-        'e2bace944e' => true,
+        '250fa0013d' => true,
+        'a0acf584c8' => false,
+        '2d020275c1' => false,
+        '2762585b56' => false,
       )
     end
 
