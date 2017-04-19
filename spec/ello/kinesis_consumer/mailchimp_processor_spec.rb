@@ -262,6 +262,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_LINKS: 'NIL',
             LOCATION: nil,
             ISFEATURED: 'TRUE',
+            ISNABAROO: 'NIL',
 
             CREATED_AT: "01/16/2017",
             UPDATED_AT: nil,
@@ -355,6 +356,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_LINKS: 'NIL',
             LOCATION: nil,
             ISFEATURED: 'TRUE',
+            ISNABAROO: 'NIL',
 
             CREATED_AT: "01/16/2017",
             UPDATED_AT: nil,
