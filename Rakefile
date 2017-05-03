@@ -38,4 +38,13 @@ namespace :ello do
       raise e
     end
   end
+
+  task :process_s3_events do
+    begin
+      Ello::KinesisConsumer::S3Processor.new.run!
+    rescue StandardError => e
+      Honeybadger.notify(e) if defined?(Honeybadger)
+      raise e
+    end
+  end
 end

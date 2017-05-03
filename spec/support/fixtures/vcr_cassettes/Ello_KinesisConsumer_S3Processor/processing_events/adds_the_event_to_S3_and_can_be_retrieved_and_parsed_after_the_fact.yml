@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://ello-test-stream.s3.amazonaws.com/12345
+    body:
+      encoding: UTF-8
+      string: !binary |-
+        T2JqAQQUYXZyby5jb2RlYwhudWxsFmF2cm8uc2NoZW1hygN7InR5cGUiOiJy
+        ZWNvcmQiLCJuYW1lIjoiVXNlcldhc0NyZWF0ZWQiLCJmaWVsZHMiOlt7Im5h
+        bWUiOiJpZCIsInR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJ1c2VybmFtZSIs
+        InR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJjcmVhdGVkX2F0IiwidHlwZSI6
+        InN0cmluZyJ9LHsibmFtZSI6ImVtYWlsIiwidHlwZSI6InN0cmluZyJ9LHsi
+        bmFtZSI6ImFuYWx5dGljc19pZCIsInR5cGUiOiJzdHJpbmcifV19ADC0vCo6
+        dF5hDaDoLjlFU5YCdgIxCmhlbGxvMjIwMTUtMDgtMTdUMTM6NTc6MDktMDY6
+        MDAiaGVsbG9AZXhhbXBsZS5jb20MMTIzMTIzMLS8Kjp0XmENoOguOUVTlg==
+    headers:
+      Content-Type:
+      - ''
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.37 ruby/2.3.1 x86_64-darwin14 resources
+      Expect:
+      - 100-continue
+      Content-Md5:
+      - 2nNPJF2RiqTgfw0GHjDpCA==
+      X-Amz-Date:
+      - 20170504T171109Z
+      Host:
+      - ello-test-stream.s3.amazonaws.com
+      X-Amz-Content-Sha256:
+      - 9fd71fbd494c8a7cfba565ea64c9a96afa8b1a6328d89cc09b66b56c17bfac08
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20170504/us-east-1/s3/aws4_request,
+        SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=58b47e3e7941ac6dfefdf8f633d3a36a38753adf35fb0ef935411bd634db3b35
+      Content-Length:
+      - '358'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - Y3g4gPipdwNJy1JL42IQlQXLdvHpYqmV3+d/A1ndnMZOs8Hg45IgSkDk8Ty3XqzDM2VsjB/u6ts=
+      X-Amz-Request-Id:
+      - 484863D5FD6CAC66
+      Date:
+      - Thu, 04 May 2017 17:11:10 GMT
+      Etag:
+      - '"da734f245d918aa4e07f0d061e30e908"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 04 May 2017 17:11:09 GMT
+- request:
+    method: get
+    uri: https://ello-test-stream.s3.amazonaws.com/12345
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - ''
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.37 ruby/2.3.1 x86_64-darwin14
+      X-Amz-Date:
+      - 20170504T171109Z
+      Host:
+      - ello-test-stream.s3.amazonaws.com
+      X-Amz-Content-Sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20170504/us-east-1/s3/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=247beb3321cbb446fa9fd4c5bb4769cc2d750435b8dfd079740f235b1318c277
+      Content-Length:
+      - '0'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - 0cwRxyoJ3Py5w0+BFoLl0DrvYdOlTJHTuMuqiKZa4ZqTu6QH9/SZ1lJDLbUZrbn9dCDDHmnvjmI=
+      X-Amz-Request-Id:
+      - 93683081F6E16456
+      Date:
+      - Thu, 04 May 2017 17:11:10 GMT
+      Last-Modified:
+      - Thu, 04 May 2017 17:11:10 GMT
+      Etag:
+      - '"da734f245d918aa4e07f0d061e30e908"'
+      Accept-Ranges:
+      - bytes
+      Content-Type:
+      - ''
+      Content-Length:
+      - '358'
+      Server:
+      - AmazonS3
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        T2JqAQQUYXZyby5jb2RlYwhudWxsFmF2cm8uc2NoZW1hygN7InR5cGUiOiJy
+        ZWNvcmQiLCJuYW1lIjoiVXNlcldhc0NyZWF0ZWQiLCJmaWVsZHMiOlt7Im5h
+        bWUiOiJpZCIsInR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJ1c2VybmFtZSIs
+        InR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJjcmVhdGVkX2F0IiwidHlwZSI6
+        InN0cmluZyJ9LHsibmFtZSI6ImVtYWlsIiwidHlwZSI6InN0cmluZyJ9LHsi
+        bmFtZSI6ImFuYWx5dGljc19pZCIsInR5cGUiOiJzdHJpbmcifV19ADC0vCo6
+        dF5hDaDoLjlFU5YCdgIxCmhlbGxvMjIwMTUtMDgtMTdUMTM6NTc6MDktMDY6
+        MDAiaGVsbG9AZXhhbXBsZS5jb20MMTIzMTIzMLS8Kjp0XmENoOguOUVTlg==
+    http_version: 
+  recorded_at: Thu, 04 May 2017 17:11:09 GMT
+recorded_with: VCR 3.0.1
