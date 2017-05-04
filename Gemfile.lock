@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/ello/kinesis-stream-reader.git
-  revision: ded73d03344656702c9b770f41450699b309fa70
-  ref: ded73d03
+  revision: ba45505b7ac2ffba2c5b1fe80f25c281ba165590
+  ref: ba45505b
   specs:
     kinesis-stream-reader (0.2.0)
       activesupport
