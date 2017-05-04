@@ -4,7 +4,7 @@ ruby '2.3.1'
 
 gem 'gibbon', '>= 2.0.0'
 gem 'honeybadger'
-gem 'kinesis-stream-reader', github: 'ello/kinesis-stream-reader', ref: 'ba45505b', require: 'stream_reader'
+gem 'kinesis-stream-reader', github: 'ello/kinesis-stream-reader', ref: '7d7691c3', require: 'stream_reader'
 gem 'activesupport', '~> 4.2.3'
 gem 'rake', '~> 10.0'
 gem 'newrelic_rpm'
