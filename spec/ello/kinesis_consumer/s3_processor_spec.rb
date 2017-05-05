@@ -17,7 +17,7 @@ describe Ello::KinesisConsumer::S3Processor, vcr: true do
     let(:shard_id) { '1' }
     let(:opts) { { schema_name: 'user_was_created', sequence_number: seq_number, raw_data: data, shard_id: shard_id } }
     let(:record) { {} }
-    let(:s3_obj) { Aws::S3::Client.new.get_object(bucket: ENV['KINESIS_STREAM_NAME'], key: "#{shard_id}/#{seq_number}")}
+    let(:s3_obj) { Aws::S3::Client.new.get_object(bucket: ENV['S3_KINESIS_EVENT_BUCKET'], key: "#{ENV['KINESIS_STREAM_NAME']}/#{shard_id}/#{seq_number}")}
 
     before do
       allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, opts)
