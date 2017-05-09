@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://ello-kinesis-events.s3.amazonaws.com/ello-test-stream/1/12345
+    body:
+      encoding: UTF-8
+      string: !binary |-
+        T2JqAQQUYXZyby5jb2RlYwhudWxsFmF2cm8uc2NoZW1hygN7InR5cGUiOiJy
+        ZWNvcmQiLCJuYW1lIjoiVXNlcldhc0NyZWF0ZWQiLCJmaWVsZHMiOlt7Im5h
+        bWUiOiJpZCIsInR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJ1c2VybmFtZSIs
+        InR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJjcmVhdGVkX2F0IiwidHlwZSI6
+        InN0cmluZyJ9LHsibmFtZSI6ImVtYWlsIiwidHlwZSI6InN0cmluZyJ9LHsi
+        bmFtZSI6ImFuYWx5dGljc19pZCIsInR5cGUiOiJzdHJpbmcifV19ADC0vCo6
+        dF5hDaDoLjlFU5YCdgIxCmhlbGxvMjIwMTUtMDgtMTdUMTM6NTc6MDktMDY6
+        MDAiaGVsbG9AZXhhbXBsZS5jb20MMTIzMTIzMLS8Kjp0XmENoOguOUVTlg==
+    headers:
+      Content-Type:
+      - ''
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.37 ruby/2.3.1 x86_64-darwin14 resources
+      Expect:
+      - 100-continue
+      Content-Md5:
+      - 2nNPJF2RiqTgfw0GHjDpCA==
+      X-Amz-Date:
+      - 20170505T172206Z
+      Host:
+      - ello-kinesis-events.s3.amazonaws.com
+      X-Amz-Content-Sha256:
+      - 9fd71fbd494c8a7cfba565ea64c9a96afa8b1a6328d89cc09b66b56c17bfac08
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20170505/us-east-1/s3/aws4_request,
+        SignedHeaders=content-md5;host;x-amz-content-sha256;x-amz-date, Signature=436df52afec2a80e22b6ab9c9750969bd708dd6e21328fbcd6b31b999e63a6c3
+      Content-Length:
+      - '358'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - kYsml5ZRc3098E0AvdXFZJeeG0Yf8MHfRnZbHY71eMKpgeen88mE7hUu0MI+EfXHKDa/fysU3uE=
+      X-Amz-Request-Id:
+      - 53610F9055140672
+      Date:
+      - Fri, 05 May 2017 17:22:07 GMT
+      Etag:
+      - '"da734f245d918aa4e07f0d061e30e908"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 05 May 2017 17:22:07 GMT
+- request:
+    method: get
+    uri: https://ello-kinesis-events.s3.amazonaws.com/ello-test-stream/1/12345
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      Content-Type:
+      - ''
+      Accept-Encoding:
+      - ''
+      User-Agent:
+      - aws-sdk-ruby2/2.2.37 ruby/2.3.1 x86_64-darwin14
+      X-Amz-Date:
+      - 20170505T172207Z
+      Host:
+      - ello-kinesis-events.s3.amazonaws.com
+      X-Amz-Content-Sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=<AWS_ACCESS_KEY_ID>/20170505/us-east-1/s3/aws4_request,
+        SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=92ffdde4c79bcbe575da967de6d01005ea2f9e01c989b66766c0e3ce83dbbf7c
+      Content-Length:
+      - '0'
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - s1FFCyP+WHiSWK1jLYErqQNH6ueuZzBXvHNaqN5BkktcJAI5f+BcQXYDzS9eIDD4bkRE5A8eCs4=
+      X-Amz-Request-Id:
+      - D0A0119FC6C7B7B8
+      Date:
+      - Fri, 05 May 2017 17:22:08 GMT
+      Last-Modified:
+      - Fri, 05 May 2017 17:22:07 GMT
+      Etag:
+      - '"da734f245d918aa4e07f0d061e30e908"'
+      Accept-Ranges:
+      - bytes
+      Content-Type:
+      - ''
+      Content-Length:
+      - '358'
+      Server:
+      - AmazonS3
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        T2JqAQQUYXZyby5jb2RlYwhudWxsFmF2cm8uc2NoZW1hygN7InR5cGUiOiJy
+        ZWNvcmQiLCJuYW1lIjoiVXNlcldhc0NyZWF0ZWQiLCJmaWVsZHMiOlt7Im5h
+        bWUiOiJpZCIsInR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJ1c2VybmFtZSIs
+        InR5cGUiOiJzdHJpbmcifSx7Im5hbWUiOiJjcmVhdGVkX2F0IiwidHlwZSI6
+        InN0cmluZyJ9LHsibmFtZSI6ImVtYWlsIiwidHlwZSI6InN0cmluZyJ9LHsi
+        bmFtZSI6ImFuYWx5dGljc19pZCIsInR5cGUiOiJzdHJpbmcifV19ADC0vCo6
+        dF5hDaDoLjlFU5YCdgIxCmhlbGxvMjIwMTUtMDgtMTdUMTM6NTc6MDktMDY6
+        MDAiaGVsbG9AZXhhbXBsZS5jb20MMTIzMTIzMLS8Kjp0XmENoOguOUVTlg==
+    http_version: 
+  recorded_at: Fri, 05 May 2017 17:22:07 GMT
+recorded_with: VCR 3.0.1

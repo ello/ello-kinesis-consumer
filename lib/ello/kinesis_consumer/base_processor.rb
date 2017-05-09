@@ -19,7 +19,8 @@ module Ello
       end
 
       def run!
-        @stream_reader.run! do |record, schema_name|
+        @stream_reader.run! do |record, opts|
+          schema_name = opts[:schema_name]
           @logger.debug "#{schema_name}: #{record}"
           method_name = schema_name.underscore
           send method_name, record if respond_to?(method_name)

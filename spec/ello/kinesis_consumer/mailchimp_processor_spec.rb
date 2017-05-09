@@ -12,9 +12,10 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
   describe 'processing events' do
 
     let(:processor) { described_class.new }
+    let(:opts) { { schema_name: schema_name } }
 
     before do
-      allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, schema_name)
+      allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, opts)
       allow_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list)
       allow_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list)
     end

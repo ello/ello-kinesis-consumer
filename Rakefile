@@ -28,11 +28,21 @@ end
 
 $LOAD_PATH.unshift File.expand_path('./lib', File.dirname(__FILE__))
 require 'ello/kinesis_consumer'
+require 'ello/kinesis_consumer/s3_processor'
 
 namespace :ello do
   task :process_mailchimp_events do
     begin
       Ello::KinesisConsumer::MailchimpProcessor.new.run!
+    rescue StandardError => e
+      Honeybadger.notify(e) if defined?(Honeybadger)
+      raise e
+    end
+  end
+
+  task :process_s3_events do
+    begin
+      Ello::KinesisConsumer::S3Processor.new.run!
     rescue StandardError => e
       Honeybadger.notify(e) if defined?(Honeybadger)
       raise e
