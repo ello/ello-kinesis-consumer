@@ -8,7 +8,7 @@ module Ello
         @stream_reader.run! do |record, opts|
           @logger.debug "#{opts[:schema_name]}: #{record}"
           obj = s3_bucket.object("#{ENV['KINESIS_STREAM_NAME']}/#{opts[:shard_id]}/#{opts[:sequence_number]}")
-          obj.put(body: opts[:raw_data], server_side_encryption: 'AES256')
+          obj.put(body: opts[:raw_data])
         end
       end
 
