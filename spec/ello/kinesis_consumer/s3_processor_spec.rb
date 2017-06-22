@@ -14,10 +14,9 @@ describe Ello::KinesisConsumer::S3Processor, vcr: true do
     let(:processor) { described_class.new }
     let(:data) { File.read(File.join('spec', 'support', 'fixtures', 'user_was_created.avro')) }
     let(:seq_number) { '12345' }
-    let(:shard_id) { '1' }
-    let(:opts) { { schema_name: 'user_was_created', sequence_number: seq_number, raw_data: data, shard_id: shard_id } }
+    let(:opts) { { schema_name: 'user_was_created', sequence_number: seq_number, raw_data: data } }
     let(:record) { {} }
-    let(:s3_obj) { Aws::S3::Client.new.get_object(bucket: ENV['KINESIS_STREAM_NAME'], key: "#{shard_id}/#{seq_number}")}
+    let(:s3_obj) { Aws::S3::Client.new.get_object(bucket: ENV['KINESIS_STREAM_NAME'], key: seq_number)}
 
     before do
       allow_any_instance_of(StreamReader).to receive(:run!).and_yield(record, opts)

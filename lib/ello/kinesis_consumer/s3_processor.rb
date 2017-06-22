@@ -7,7 +7,7 @@ module Ello
       def run!
         @stream_reader.run! do |record, opts|
           @logger.debug "#{opts[:schema_name]}: #{record}"
-          obj = s3_bucket.object("#{opts[:shard_id]}/#{opts[:sequence_number]}")
+          obj = s3_bucket.object(opts[:sequence_number])
           obj.put(body: opts[:raw_data])
         end
       end
