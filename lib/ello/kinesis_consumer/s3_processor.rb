@@ -7,7 +7,7 @@ module Ello
       def run!
         @stream_reader.run! do |record, opts|
           @logger.debug "#{opts[:schema_name]}: #{record}"
-          obj = s3_bucket.object("#{ENV['KINESIS_STREAM_NAME']}/#{opts[:shard_id]}/#{opts[:sequence_number]}")
+          obj = s3_bucket.object("#{opts[:shard_id]}/#{opts[:sequence_number]}")
           obj.put(body: opts[:raw_data])
         end
       end
@@ -15,7 +15,7 @@ module Ello
       private
 
       def s3_bucket
-        @s3_bucket ||= Aws::S3::Resource.new.bucket(ENV['S3_KINESIS_EVENT_BUCKET'])
+        @s3_bucket ||= Aws::S3::Resource.new.bucket(ENV['KINESIS_STREAM_NAME'])
       end
     end
   end
