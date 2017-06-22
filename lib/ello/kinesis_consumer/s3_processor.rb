@@ -7,15 +7,10 @@ module Ello
       def run!
         @stream_reader.run! do |record, opts|
           @logger.debug "#{opts[:schema_name]}: #{record}"
-          upload_record_to_s3(opts)
+          obj = s3_bucket.object("#{ENV['KINESIS_STREAM_NAME']}/#{opts[:shard_id]}/#{opts[:sequence_number]}")
+          obj.put(body: opts[:raw_data], server_side_encryption: 'AES256')
         end
       end
-
-      def upload_record_to_s3(opts)
-        obj = s3_bucket.object("#{ENV['KINESIS_STREAM_NAME']}/#{opts[:shard_id]}/#{opts[:sequence_number]}")
-        obj.put(body: opts[:raw_data], server_side_encryption: 'AES256')
-      end
-      add_transaction_tracer :upload_record_to_s3, category: :task
 
       private
 
