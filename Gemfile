@@ -8,7 +8,6 @@ gem 'kinesis-stream-reader', github: 'ello/kinesis-stream-reader', require: 'str
 gem 'activesupport', '~> 4.2.3'
 gem 'rake', '~> 10.0'
 gem 'newrelic_rpm'
-gem 'aws-sdk', '~> 2'
 
 group :development, :test do
   gem 'bundler', '~> 1.10'
