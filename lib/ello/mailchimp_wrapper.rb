@@ -32,7 +32,7 @@ class MailchimpWrapper
   private
 
   def skip_list
-    (ENV['EMAILS_TO_SKIP'] || '').split(',').map(&:strip)
+    (ENV['EMAILS_TO_SKIP'] || '').split(',').map { |email| email.tr('.', '') }.map(&:strip)
   end
 
   def users_list
