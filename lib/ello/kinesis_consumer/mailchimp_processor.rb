@@ -108,12 +108,12 @@ module Ello
       def merge_fields_for_user(user_record, overrides = {})
         {
           USERNAME: user_record['username'],
-          NAME: user_record['name'],
+          NAME: user_record['name'] || '',
           HAS_AVATAR: bool(user_record['has_avatar']),
           HAS_COVER: bool(user_record['has_cover_image']),
           HAS_BIO: bool(user_record['has_bio']),
           HAS_LINKS: bool(user_record['has_links']),
-          LOCATION: user_record['location'],
+          LOCATION: user_record['location'] || '',
           ISFEATURED: bool(user_record['is_featured']),
           ISNABAROO: bool(user_record['is_nabaroo']),
 

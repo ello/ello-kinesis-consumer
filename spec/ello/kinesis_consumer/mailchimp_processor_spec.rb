@@ -261,7 +261,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_COVER: 'NIL',
             HAS_BIO: 'NIL',
             HAS_LINKS: 'NIL',
-            LOCATION: nil,
+            LOCATION: '',
             ISFEATURED: 'TRUE',
             ISNABAROO: 'NIL',
 
@@ -355,7 +355,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_COVER: 'NIL',
             HAS_BIO: 'NIL',
             HAS_LINKS: 'NIL',
-            LOCATION: nil,
+            LOCATION: '',
             ISFEATURED: 'TRUE',
             ISNABAROO: 'NIL',
 
@@ -445,7 +445,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_COVER: 'NIL',
             HAS_BIO: 'NIL',
             HAS_LINKS: 'NIL',
-            LOCATION: nil,
+            LOCATION: '',
             ISFEATURED: 'TRUE',
             ISNABAROO: 'NIL',
 
