@@ -261,7 +261,7 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_COVER: 'NIL',
             HAS_BIO: 'NIL',
             HAS_LINKS: 'NIL',
-            LOCATION: nil,
+            LOCATION: '',
             ISFEATURED: 'TRUE',
             ISNABAROO: 'NIL',
 
@@ -355,7 +355,97 @@ describe Ello::KinesisConsumer::MailchimpProcessor, freeze_time: true do
             HAS_COVER: 'NIL',
             HAS_BIO: 'NIL',
             HAS_LINKS: 'NIL',
-            LOCATION: nil,
+            LOCATION: '',
+            ISFEATURED: 'TRUE',
+            ISNABAROO: 'NIL',
+
+            CREATED_AT: "01/16/2017",
+            UPDATED_AT: nil,
+            LAST_SEEN: nil,
+            LAST_POST: nil,
+            LAST_CMMNT: nil,
+            LAST_LOVE: nil,
+
+            LOVES_GVN: nil,
+            POSTS: nil,
+            # FOLLOWERS: nil,
+            FOLLOWING: nil,
+            INVITES: nil,
+            COMMENTS: nil,
+            REPOSTS: nil,
+            # LOVES_RCVD: nil,
+            # CMMNT_RCVD: nil,
+            SALEABLE: nil,
+
+            COLLAB: 'NIL',
+            HIREABLE: 'TRUE',
+            VIEWS_NSFW: 'FALSE',
+
+            ACCOUNT: 'TRUE',
+          }
+        })
+        processor.run!
+      end
+    end
+
+    describe 'when presented with a UserWasSpamified event' do
+      let(:schema_name) { 'user_was_spamified' }
+      let(:record) do
+        {
+          'email' => 'jay@ello.co',
+        }
+      end
+
+      it 'removes the email from the users list in Mailchimp' do
+        expect_any_instance_of(MailchimpWrapper).to receive(:remove_from_users_list).with('jay@ello.co')
+        processor.run!
+      end
+    end
+
+    describe 'when presented with a UserWasUnspamified event' do
+      let(:schema_name) { 'user_was_unspamified' }
+      let(:created_at) { 1484598233.868098 }
+      let(:record) do
+        {
+          'username' => 'testuser',
+          'name' => 'jay',
+          'email' => 'jay@ello.co',
+          'created_at' => created_at,
+          'has_experimental_features' => false,
+          'views_adult_content' => false,
+          'is_hireable' => true,
+          'is_featured' => true,
+          'followed_categories' => %w(Art Writing),
+          'featured_categories' => %w(Art),
+          'subscription_preferences' => {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          }
+        }
+      end
+
+      it 'creates the record in Mailchimp' do
+        expect_any_instance_of(MailchimpWrapper).to receive(:upsert_to_users_list).with({
+          email: 'jay@ello.co',
+          force_resubscribe: true,
+          preferences: {
+            'users_email_list' => true,
+            'onboarding_drip' => true,
+            'daily_ello' => true,
+            'weekly_ello' => true
+          },
+          categories: %w(Art Writing),
+          featured_categories: %w(Art),
+          merge_fields: {
+            USERNAME: 'testuser',
+            NAME: 'jay',
+            HAS_AVATAR: 'NIL',
+            HAS_COVER: 'NIL',
+            HAS_BIO: 'NIL',
+            HAS_LINKS: 'NIL',
+            LOCATION: '',
             ISFEATURED: 'TRUE',
             ISNABAROO: 'NIL',
 
